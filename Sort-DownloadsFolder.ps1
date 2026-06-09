@@ -8,35 +8,42 @@
       - Prepends LargeFlagPrefix to any file at or above LargeFlagSizeMB, causing it to
         sort to the top of the directory listing when sorted by name.
 
+    Files with unmapped extensions are left in place.
     Files that are locked (actively being downloaded) are skipped and retried next run.
     Designed to be run on a schedule via Task Scheduler (e.g. every 30 minutes).
 
 .NOTES
     Requires : PowerShell 7.4+
     Scheduler: pwsh.exe -NonInteractive -File "C:\Scripts\Sort-DownloadsFolder.ps1"
-    Logs     : <LogDirectory>\Sort-DownloadsFolder_yyyyMMdd.log  (daily rollover)
+    Logs     : <LogDirectory>\Sort-DownloadsFolder.log  (cleared on first run each day)
 #>
 
 #Requires -Version 7.4
 
+[CmdletBinding()]
+param(
+    [Parameter()]
+    [string]$DownloadsPath = (Join-Path ([Environment]::GetFolderPath('UserProfile')) 'Downloads'),
+
+    [Parameter()]
+    [string]$ExtensionMapJson = "$PSScriptRoot\ExtensionMap.json",
+
+    [Parameter()]
+    [int]$LargeFlagSizeMB = 500,
+
+    [Parameter()]
+    [string]$LargeFlagPrefix = '!LRG_',
+
+    [Parameter()]
+    [string]$LogDirectory = $PSScriptRoot
+)
+
 #region Configuration
 
-$config = @{
-    DownloadsPath   = Join-Path ([Environment]::GetFolderPath('UserProfile')) 'Downloads'
-    LargeFlagSizeMB = 500
-    LargeFlagPrefix = '!LRG_'
-    CatchAllFolder  = '_Unsorted'
-    LogDirectory    = $PSScriptRoot
-    ExtensionMap    = [ordered]@{
-        'Installers' = @('.exe', '.msi', '.msix', '.appx', '.pkg', '.dmg', '.run', '.deb', '.rpm')
-        'Archives'   = @('.zip', '.7z', '.rar', '.tar', '.gz', '.bz2', '.xz', '.cab', '.iso', '.img')
-        'Documents'  = @('.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.txt', '.csv', '.rtf', '.odt', '.ods', '.odp', '.md')
-        'Images'     = @('.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.webp', '.tiff', '.tif', '.ico', '.heic', '.raw', '.cr2', '.nef')
-        'Audio'      = @('.mp3', '.flac', '.wav', '.aac', '.ogg', '.m4a', '.wma', '.opus', '.aiff')
-        'Video'      = @('.mp4', '.mkv', '.avi', '.mov', '.wmv', '.flv', '.webm', '.m4v', '.mpg', '.mpeg')
-        'Code'       = @('.ps1', '.psm1', '.psd1', '.py', '.js', '.ts', '.json', '.xml', '.yaml', '.yml', '.sh', '.bat', '.cmd', '.cs', '.cpp', '.h', '.java', '.rb', '.go', '.rs')
-    }
-}
+$ExtensionMap = (
+    Get-Content $ExtensionMapJson -Raw |
+    ConvertFrom-Json -AsHashtable
+)
 
 #endregion Configuration
 
@@ -46,10 +53,14 @@ $script:logFile = $null
 
 function Initialize-Log
 {
-    if (-not (Test-Path -LiteralPath $config.LogDirectory))
-    { New-Item -ItemType Directory -Path $config.LogDirectory -Force | Out-Null }
+    if (-not (Test-Path -LiteralPath $LogDirectory))
+    { New-Item -ItemType Directory -Path $LogDirectory -Force | Out-Null }
 
-    $script:logFile = Join-Path $config.LogDirectory 'Sort-DownloadsFolder_RollingLog.log'
+    $script:logFile = Join-Path $LogDirectory 'Sort-DownloadsFolder.log'
+
+    if ((Test-Path -LiteralPath $script:logFile) -and
+        (Get-Item -LiteralPath $script:logFile).LastWriteTime.Date -lt (Get-Date).Date)
+    { Clear-Content -LiteralPath $script:logFile }
 }
 
 function Write-Log
@@ -58,7 +69,7 @@ function Write-Log
         [Parameter(Mandatory)]
         [string] $Message,
 
-        [ValidateSet('INFO', 'WARN', 'ERROR')]
+        [ValidateSet('INFO', 'VERBOSE', 'WARN', 'ERROR')]
         [string] $Level = 'INFO'
     )
 
@@ -73,9 +84,10 @@ function Write-Log
 
     switch ($Level)
     {
-        'WARN'  { Write-Warning $Message }
-        'ERROR' { Write-Error   $Message }
-        default { Write-Verbose $Message }
+        'INFO'    { Write-Information $Message }
+        'VERBOSE' { Write-Verbose     $Message }
+        'WARN'    { Write-Warning     $Message }
+        'ERROR'   { Write-Error       $Message }
     }
 }
 
@@ -83,72 +95,32 @@ function Write-Log
 
 #region Helpers
 
-function Get-TargetFolder
-{
-    <#
-    .SYNOPSIS
-        Returns the mapped subfolder name for a file extension, or CatchAllFolder if unmapped.
-    #>
-    param(
-        [Parameter(Mandatory)]
-        [string] $Extension
-    )
-
-    $ext = $Extension.ToLower()
-
-    foreach ($folder in $config.ExtensionMap.Keys)
-    {
-        if ($config.ExtensionMap[$folder] -contains $ext)
-        {
-            return $folder
-        }
-    }
-
-    return $config.CatchAllFolder
-}
-
 function Resolve-DestinationPath
 {
-    <#
-    .SYNOPSIS
-        Returns a non-colliding destination path, appending _N to the base name if the
-        target already exists.
-    #>
     param(
         [Parameter(Mandatory)]
-        [string] $Directory,
+        [string]$Directory,
 
         [Parameter(Mandatory)]
-        [string] $FileName
+        [string]$FileName
     )
 
+    $base      = [System.IO.Path]::GetFileNameWithoutExtension($FileName)
+    $ext       = [System.IO.Path]::GetExtension($FileName)
+    $n         = 0
     $candidate = Join-Path $Directory $FileName
-    if (-not (Test-Path -LiteralPath $candidate))
-    {
-        return $candidate
-    }
 
-    $base = [System.IO.Path]::GetFileNameWithoutExtension($FileName)
-    $ext  = [System.IO.Path]::GetExtension($FileName)
-    $n    = 1
-
-    do
-    {
-        $candidate = Join-Path $Directory ('{0}_{1}{2}' -f $base, $n, $ext)
-        $n++
-    }
     while (Test-Path -LiteralPath $candidate)
+    {
+        $n++
+        $candidate = Join-Path $Directory ('{0} ({1}){2}' -f @($base, $n, $ext))
+    }
 
     return $candidate
 }
 
 function Test-FileLocked
 {
-    <#
-    .SYNOPSIS
-        Returns $true if the file cannot be opened exclusively — e.g. it is still being
-        written to by a browser download.
-    #>
     param(
         [Parameter(Mandatory)]
         [string] $Path
@@ -178,24 +150,23 @@ function Test-FileLocked
 Initialize-Log
 
 Write-Log (@(
-    'Sort-DownloadsFolder started.'
-    "Downloads path  : $($config.DownloadsPath)"
-    "Size threshold  : $($config.LargeFlagSizeMB)MB"
-    "Large prefix    : $($config.LargeFlagPrefix)"
-    "Catch-all folder: $($config.CatchAllFolder)"
+    "Sort-DownloadsFolder started.`n"
+    "Downloads path: $($DownloadsPath)"
+    "Size threshold: $($LargeFlagSizeMB)MB"
+    "Large prefix  : $($LargeFlagPrefix)`n"
 ) -join "`n")
 
-if (-not (Test-Path -LiteralPath $config.DownloadsPath))
+if (-not (Test-Path -LiteralPath $DownloadsPath))
 {
-    Write-Log "Downloads path not found: $($config.DownloadsPath)" -Level ERROR
-    throw "Downloads path not found: $($config.DownloadsPath)"
+    Write-Log "Downloads path not found: '$($DownloadsPath)'" 'ERROR'
+    throw "Downloads path not found: '$($DownloadsPath)'"
 }
 
-$thresholdBytes = $config.LargeFlagSizeMB * 1MB
-$files          = Get-ChildItem -LiteralPath $config.DownloadsPath -File
+$thresholdBytes = $LargeFlagSizeMB * 1MB
+$files          = Get-ChildItem -LiteralPath $DownloadsPath -File
 $stats          = @{ Moved = 0; Flagged = 0; Skipped = 0; Errors = 0 }
 
-Write-Log "Files in Downloads root: $($files.Count)"
+Write-Log "Processing $($files.Count) files in current user's Downloads folder..."
 
 foreach ($file in $files)
 {
@@ -203,8 +174,27 @@ foreach ($file in $files)
     {
         if (Test-FileLocked -Path $file.FullName)
         {
-            Write-Log "Skipped (locked): $($file.Name)"
+            Write-Log "File is locked: '$($file.Name)'" 'VERBOSE'
             $stats.Skipped++
+            continue
+        }
+
+        $fileExtension = $file.Extension.ToLower()
+        $targetFolder  = $null
+
+        foreach ($folder in $ExtensionMap.Keys)
+        {
+            if ($ExtensionMap[$folder] -contains $fileExtension)
+            {
+                $targetFolder = $folder
+                Write-Log "Matched '$($file.Name)' type: $folder" 'VERBOSE'
+                break
+            }
+        }
+
+        if (-not $targetFolder)
+        {
+            Write-Log "No type match: '$($file.Name)'" 'VERBOSE'
             continue
         }
 
@@ -212,27 +202,26 @@ foreach ($file in $files)
         $currentName = $file.Name
 
         if ($file.Length -ge $thresholdBytes -and
-            -not $currentName.StartsWith($config.LargeFlagPrefix))      # Flag !LRG_ if over LargeFlagSizeMB
+            -not $currentName.StartsWith($LargeFlagPrefix))      # Flag !LRG_ if over LargeFlagSizeMB
         {
-            $flaggedName      = $config.LargeFlagPrefix + $currentName
+            $flaggedName      = $LargeFlagPrefix + $currentName
             $resolvedFlagPath = Resolve-DestinationPath -Directory $file.DirectoryName -FileName $flaggedName
             $resolvedFlagName = [System.IO.Path]::GetFileName($resolvedFlagPath)
 
             Rename-Item -LiteralPath $currentPath -NewName $resolvedFlagName -EA 'Stop'
-            Write-Log "Flagged '$currentName' ($([math]::Round($file.Length / 1MB, 1))MB)"
+            Write-Log "Flagged large file '$currentName' ($([math]::Round($file.Length / 1MB, 1))MB)" 'VERBOSE'
             $stats.Flagged++
 
             $currentName = $resolvedFlagName
             $currentPath = Join-Path $file.DirectoryName $currentName
         }
 
-        $targetFolder = Get-TargetFolder -Extension $file.Extension     # Sort into type folder if applicable
-        $targetDir    = Join-Path $config.DownloadsPath $targetFolder
+        $targetDir = Join-Path $DownloadsPath $targetFolder
 
         if (-not (Test-Path -LiteralPath $targetDir))
         {
             New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
-            Write-Log "Created missing file type subfolder: $targetFolder"
+            Write-Log "Created missing file type subfolder: '$targetFolder'" 'VERBOSE'
         }
 
         $destPath = Resolve-DestinationPath -Directory $targetDir -FileName $currentName
@@ -243,17 +232,20 @@ foreach ($file in $files)
     }
     catch
     {
-        Write-Log "Error processing '$($file.Name)':`n$_" -Level ERROR
+        Write-Log "Error processing '$($file.Name)':`n$_" 'ERROR'
         $stats.Errors++
     }
 }
 
 Write-Log (@(
-    'Sort-DownloadsFolder complete.'
+    "Done.`n"
+    "Summary:"
     "Moved  : $($stats.Moved)"
     "Flagged: $($stats.Flagged)"
     "Skipped: $($stats.Skipped)"
-    "Errors : $($stats.Errors)"
+    "Errors : $($stats.Errors)`n"
 ) -join "`n")
+
+Write-Log "Sort-DownloadsFolder complete."
 
 #endregion Main

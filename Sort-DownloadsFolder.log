@@ -1,0 +1,56 @@
+[2026-06-09T15:14:03] [INFO] Sort-DownloadsFolder started.
+
+Downloads path : C:\Users\eaton_ryan\Downloads
+Size threshold : 500MB
+Large prefix   : !LRG_
+
+[2026-06-09T15:14:03] [INFO] Processing 11 files in current user's Downloads folder...
+[2026-06-09T15:14:03] [VERBOSE] No type match: ___Restrictions (CLONE ONLY).mobileconfig
+[2026-06-09T15:14:04] [VERBOSE] Matched 849 Mobile Devices in Andrew R - All AppleTV.csv type: Documents
+[2026-06-09T15:14:04] [VERBOSE] Created missing file type subfolder: Documents
+[2026-06-09T15:14:04] [VERBOSE] Moved '849 Mobile Devices in Andrew R - All AppleTV.csv' to: 'Documents'
+[2026-06-09T15:14:04] [VERBOSE] Matched Client apps_2026-05-25T22_29_00.721Z.csv type: Documents
+[2026-06-09T15:14:04] [VERBOSE] Moved 'Client apps_2026-05-25T22_29_00.721Z.csv' to: 'Documents'
+[2026-06-09T15:14:04] [VERBOSE] Matched iMazingProfileEditorWindows.exe type: Installers
+[2026-06-09T15:14:04] [VERBOSE] Created missing file type subfolder: Installers
+[2026-06-09T15:14:04] [VERBOSE] Moved 'iMazingProfileEditorWindows.exe' to: 'Installers'
+[2026-06-09T15:14:04] [VERBOSE] No type match: Intune - macOS Devices_Token_2026-06-03T18-03-17Z_smime.p7m
+[2026-06-09T15:14:04] [VERBOSE] Matched OfficeSetup.exe type: Installers
+[2026-06-09T15:14:05] [VERBOSE] Moved 'OfficeSetup.exe' to: 'Installers'
+[2026-06-09T15:14:05] [VERBOSE] Matched Remedy Round 1 iPads.xlsx type: Documents
+[2026-06-09T15:14:05] [VERBOSE] Moved 'Remedy Round 1 iPads.xlsx' to: 'Documents'
+[2026-06-09T15:14:05] [VERBOSE] Matched Round 2 Remedy iPads.xlsx type: Documents
+[2026-06-09T15:14:05] [VERBOSE] Moved 'Round 2 Remedy iPads.xlsx' to: 'Documents'
+[2026-06-09T15:14:05] [VERBOSE] Matched Ryan Eaton-letter.pdf type: Documents
+[2026-06-09T15:14:05] [VERBOSE] Moved 'Ryan Eaton-letter.pdf' to: 'Documents'
+[2026-06-09T15:14:05] [VERBOSE] No type match: SecureMessageAtt.html
+[2026-06-09T15:14:05] [VERBOSE] Matched TWEE-iPads-DONE 1.xlsx type: Documents
+[2026-06-09T15:14:06] [VERBOSE] Moved 'TWEE-iPads-DONE 1.xlsx' to: 'Documents'
+[2026-06-09T15:14:06] [INFO] Done.
+
+Summary:
+Moved  : 8
+Flagged: 0
+Skipped: 0
+Errors : 0
+
+Sort-DownloadsFolder complete.
+[2026-06-09T15:28:58] [INFO] Sort-DownloadsFolder started.
+
+Downloads path: C:\Users\eaton_ryan\Downloads
+Size threshold: 500MB
+Large prefix  : !LRG_
+
+[2026-06-09T15:28:58] [INFO] Processing 3 files in current user's Downloads folder...
+[2026-06-09T15:28:58] [VERBOSE] No type match: '___Restrictions (CLONE ONLY).mobileconfig'
+[2026-06-09T15:28:58] [VERBOSE] No type match: 'Intune - macOS Devices_Token_2026-06-03T18-03-17Z_smime.p7m'
+[2026-06-09T15:28:58] [VERBOSE] No type match: 'SecureMessageAtt.html'
+[2026-06-09T15:28:58] [INFO] Done.
+
+Summary:
+Moved  : 0
+Flagged: 0
+Skipped: 0
+Errors : 0
+
+[2026-06-09T15:28:59] [INFO] Sort-DownloadsFolder complete.
