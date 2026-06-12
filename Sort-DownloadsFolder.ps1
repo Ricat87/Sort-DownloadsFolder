@@ -649,7 +649,7 @@ if (-not ($Skip -contains 'Files') -and
 elseif ($Skip -contains 'Files')
 { Write-Log "-Skip specified with 'Files', file processing skipped." }
 elseif ($rootFiles.Count -eq 0)
-{ Write-Log "No files to process in the root of '$DownloadsFolder'." }
+{ Write-Log "No files to process in the root of '$DownloadsPath'." }
 
 $rootDirs = Get-ChildItem -LiteralPath $DownloadsPath -Directory
 
@@ -658,7 +658,11 @@ $dirCount = $rootDirs.Count - ($rootDirs.Where({ $_.Name.StartsWith('!') -or $_.
 if ($rootFiles.Count -eq 0 -and
     $dirCount -eq 0)
 {
-    Write-Log "No files or folders found to process in the root of '$DownloadsFolder', exiting."
+    Write-Log (@(
+        "No files or folders found to process in the root of '$DownloadsPath'."
+        "Sort-DownloadsFolder complete."
+    ) -join "`n")
+
     return
 }
 
@@ -725,11 +729,13 @@ if (-not ($Skip -contains 'Folders') -and
             $fileStats.Errors++
         }
     }
+
+    Write-Log "Done."
 }
 elseif ($Skip -contains 'Folders')
 { Write-Log "-Skip specified with 'Folders', folder processing skipped." }
 elseif ($dirCount -eq 0)
-{ Write-Log "No folders to process in the root of '$DownloadsFolder'." }
+{ Write-Log "No folders to process in the root of '$DownloadsPath'." }
 
 if ($CleanReminderThreshold -gt 0 -and
     ($fileStats.Skipped -ge $CleanReminderThreshold))
@@ -741,8 +747,7 @@ if ($CleanReminderThreshold -gt 0 -and
 }
 
 Write-Log (@(
-    "Done.`n"
-    "Summary:"
+    "`nSummary:"
     "Moved  : $($fileStats.Moved)"
     "Flagged: $($fileStats.Flagged)"
     "Skipped: $($fileStats.Skipped)"
