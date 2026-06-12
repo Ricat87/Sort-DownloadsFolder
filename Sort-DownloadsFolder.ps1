@@ -1,3 +1,8 @@
+<#PSScriptInfo
+.VERSION 1.0.0
+.AUTHOR Ryan Eaton
+#>
+
 <#
 .SYNOPSIS
     Sorts Downloads folder files into type-based subfolders and flags large files.
