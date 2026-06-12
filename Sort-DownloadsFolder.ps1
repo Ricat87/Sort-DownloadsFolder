@@ -113,7 +113,7 @@ param(
     [string]$LargeFlagPrefix    = '!LRG_',
 
     [ValidatePattern(
-        '^[^\\/:*?"<>|!]'
+        '^[^\\/:*?"<>|!][^\\/:*?"<>|]*$'
     )]
     [ValidateNotNullOrEmpty()]
     [string]$StaleFolderName    = '_Stale',
