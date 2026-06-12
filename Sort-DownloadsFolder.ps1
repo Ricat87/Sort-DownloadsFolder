@@ -141,6 +141,8 @@ param(
     [switch]$Quiet
 )
 
+[version]$script:Version = '1.0.0'
+
 #region In-Script Map Override
 
 $scriptExtMapOverrideEnabled = $false   # Turn this override map on or off
@@ -489,6 +491,7 @@ if (-not $NoLog)
         if ($newLogDir)  { "Log directory '$LogDirectory' was created." }
         if ($clearedLog) { "It's a new day; logfile was wiped." }
         "Sort-DownloadsFolder started.`n"
+        "Script version   : $($script:Version)"
         "Downloads folder : $($DownloadsPath)"
         "Large file prefix: $($LargeFlagPrefix)"
         "Stale folder name: $($StaleFolderName)"
