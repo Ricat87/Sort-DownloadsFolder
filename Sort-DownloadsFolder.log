@@ -1,51 +1,752 @@
-[2026-06-09T15:14:03] [INFO] Sort-DownloadsFolder started.
+[2026-06-11T10:06:29] [INFO] Sort-DownloadsFolder started.
 
-Downloads path : C:\Users\eaton_ryan\Downloads
-Size threshold : 500MB
-Large prefix   : !LRG_
+Downloads folder : C:\Users\eaton_ryan\Downloads
+Large file prefix: !LRG_
+Stale folder name: _Stale
+Log directory    : D:\Sort-DownloadsFolder
+Custom ext. map  : No
+Overrides applied: Yes
+Large file size  : >100MB
+Min. file age    : 30 minutes
+Files stale after: 7 days
+Cleanup reminder : 15 loose files
 
-[2026-06-09T15:14:03] [INFO] Processing 11 files in current user's Downloads folder...
-[2026-06-09T15:14:03] [VERBOSE] No type match: ___Restrictions (CLONE ONLY).mobileconfig
-[2026-06-09T15:14:04] [VERBOSE] Matched 849 Mobile Devices in Andrew R - All AppleTV.csv type: Documents
-[2026-06-09T15:14:04] [VERBOSE] Created missing file type subfolder: Documents
-[2026-06-09T15:14:04] [VERBOSE] Moved '849 Mobile Devices in Andrew R - All AppleTV.csv' to: 'Documents'
-[2026-06-09T15:14:04] [VERBOSE] Matched Client apps_2026-05-25T22_29_00.721Z.csv type: Documents
-[2026-06-09T15:14:04] [VERBOSE] Moved 'Client apps_2026-05-25T22_29_00.721Z.csv' to: 'Documents'
-[2026-06-09T15:14:04] [VERBOSE] Matched iMazingProfileEditorWindows.exe type: Installers
-[2026-06-09T15:14:04] [VERBOSE] Created missing file type subfolder: Installers
-[2026-06-09T15:14:04] [VERBOSE] Moved 'iMazingProfileEditorWindows.exe' to: 'Installers'
-[2026-06-09T15:14:04] [VERBOSE] No type match: Intune - macOS Devices_Token_2026-06-03T18-03-17Z_smime.p7m
-[2026-06-09T15:14:04] [VERBOSE] Matched OfficeSetup.exe type: Installers
-[2026-06-09T15:14:05] [VERBOSE] Moved 'OfficeSetup.exe' to: 'Installers'
-[2026-06-09T15:14:05] [VERBOSE] Matched Remedy Round 1 iPads.xlsx type: Documents
-[2026-06-09T15:14:05] [VERBOSE] Moved 'Remedy Round 1 iPads.xlsx' to: 'Documents'
-[2026-06-09T15:14:05] [VERBOSE] Matched Round 2 Remedy iPads.xlsx type: Documents
-[2026-06-09T15:14:05] [VERBOSE] Moved 'Round 2 Remedy iPads.xlsx' to: 'Documents'
-[2026-06-09T15:14:05] [VERBOSE] Matched Ryan Eaton-letter.pdf type: Documents
-[2026-06-09T15:14:05] [VERBOSE] Moved 'Ryan Eaton-letter.pdf' to: 'Documents'
-[2026-06-09T15:14:05] [VERBOSE] No type match: SecureMessageAtt.html
-[2026-06-09T15:14:05] [VERBOSE] Matched TWEE-iPads-DONE 1.xlsx type: Documents
-[2026-06-09T15:14:06] [VERBOSE] Moved 'TWEE-iPads-DONE 1.xlsx' to: 'Documents'
-[2026-06-09T15:14:06] [INFO] Done.
+[2026-06-11T10:06:29] [INFO] Processing 301 files in current user's Downloads folder...
+[2026-06-11T10:06:30] [VERBOSE] Matched '_AAD-Licenses-M365DeviceBasedSubscription_2024-3-25.csv' type: CSV
+[2026-06-11T10:06:30] [VERBOSE] Created file category subfolder: '!CSV'
+[2026-06-11T10:06:30] [INFO] Moved '_AAD-Licenses-M365DeviceBasedSubscription_2024-3-25.csv' to: '!CSV'
+[2026-06-11T10:06:30] [VERBOSE] Matched '_AAD-SD36-O365-ProPlus-DeviceSubscription_2024-3-11.csv' type: CSV
+[2026-06-11T10:06:30] [INFO] Moved '_AAD-SD36-O365-ProPlus-DeviceSubscription_2024-3-11.csv' to: '!CSV'
+[2026-06-11T10:06:30] [VERBOSE] Matched '[MS-SAMR]-210625.pdf' type: Documents
+[2026-06-11T10:06:30] [VERBOSE] Created file category subfolder: '!Documents'
+[2026-06-11T10:06:30] [INFO] Moved '[MS-SAMR]-210625.pdf' to: '!Documents'
+[2026-06-11T10:06:30] [VERBOSE] Matched '1 (1).txt' type: Documents
+[2026-06-11T10:06:31] [INFO] Moved '1 (1).txt' to: '!Documents'
+[2026-06-11T10:06:31] [VERBOSE] Matched '1.txt' type: Documents
+[2026-06-11T10:06:31] [INFO] Moved '1.txt' to: '!Documents'
+[2026-06-11T10:06:31] [VERBOSE] Matched '2025-04-01 08_15_03-Windows Security.jpg' type: Images
+[2026-06-11T10:06:31] [VERBOSE] Created file category subfolder: '!Images'
+[2026-06-11T10:06:31] [INFO] Moved '2025-04-01 08_15_03-Windows Security.jpg' to: '!Images'
+[2026-06-11T10:06:31] [VERBOSE] Matched '2025-04-01 08_17_09-Windows Security.jpg' type: Images
+[2026-06-11T10:06:31] [INFO] Moved '2025-04-01 08_17_09-Windows Security.jpg' to: '!Images'
+[2026-06-11T10:06:31] [VERBOSE] Matched '2025.11.17 IMS Approval Form - 3D Laser Printer.pdf' type: Documents
+[2026-06-11T10:06:31] [INFO] Moved '2025.11.17 IMS Approval Form - 3D Laser Printer.pdf' to: '!Documents'
+[2026-06-11T10:06:32] [VERBOSE] Matched '5060842.csv' type: CSV
+[2026-06-11T10:06:32] [INFO] Moved '5060842.csv' to: '!CSV'
+[2026-06-11T10:06:32] [VERBOSE] Matched '5062553.csv' type: CSV
+[2026-06-11T10:06:32] [INFO] Moved '5062553.csv' to: '!CSV'
+[2026-06-11T10:06:32] [VERBOSE] Matched '55b23-docx-en.docx' type: Documents
+[2026-06-11T10:06:32] [INFO] Moved '55b23-docx-en.docx' to: '!Documents'
+[2026-06-11T10:06:32] [VERBOSE] Matched '55m60-pdf-en.pdf' type: Documents
+[2026-06-11T10:06:32] [INFO] Moved '55m60-pdf-en.pdf' to: '!Documents'
+[2026-06-11T10:06:32] [VERBOSE] Matched '5d98d78a824f11e38310121226a7e45e_8.jpg' type: Images
+[2026-06-11T10:06:32] [INFO] Moved '5d98d78a824f11e38310121226a7e45e_8.jpg' to: '!Images'
+[2026-06-11T10:06:33] [VERBOSE] Matched '607008_Intel_Wi-Fi_6_AX201_Harrison_Peak_2_Product_Brief_v1_7.pdf' type: Documents
+[2026-06-11T10:06:33] [INFO] Moved '607008_Intel_Wi-Fi_6_AX201_Harrison_Peak_2_Product_Brief_v1_7.pdf' to: '!Documents'
+[2026-06-11T10:06:33] [VERBOSE] Stale unmatched file: '7Y_2L3Z5.htm' (modified 2025-02-20)
+[2026-06-11T10:06:33] [VERBOSE] Created file category subfolder: '_Stale'
+[2026-06-11T10:06:33] [INFO] Moved '7Y_2L3Z5.htm' to: '_Stale'
+[2026-06-11T10:06:33] [VERBOSE] Matched '98iconsexample.jpg' type: Images
+[2026-06-11T10:06:33] [INFO] Moved '98iconsexample.jpg' to: '!Images'
+[2026-06-11T10:06:33] [VERBOSE] Matched 'aaaaaaaaa.gif' type: Images
+[2026-06-11T10:06:33] [INFO] Moved 'aaaaaaaaa.gif' to: '!Images'
+[2026-06-11T10:06:34] [VERBOSE] Matched 'ags_waifu2x_noise0_scale4x.png' type: Images
+[2026-06-11T10:06:34] [INFO] Moved 'ags_waifu2x_noise0_scale4x.png' to: '!Images'
+[2026-06-11T10:06:34] [VERBOSE] Matched 'ags.png' type: Images
+[2026-06-11T10:06:34] [INFO] Moved 'ags.png' to: '!Images'
+[2026-06-11T10:06:34] [VERBOSE] Stale unmatched file: 'appstore.nro' (modified 2024-05-11)
+[2026-06-11T10:06:34] [INFO] Moved 'appstore.nro' to: '_Stale'
+[2026-06-11T10:06:34] [VERBOSE] Matched 'Aruba_VHD_VRD_Engineering_Configuration_Guide.pdf' type: Documents
+[2026-06-11T10:06:34] [INFO] Moved 'Aruba_VHD_VRD_Engineering_Configuration_Guide.pdf' to: '!Documents'
+[2026-06-11T10:06:34] [VERBOSE] Matched 'AsrExclusionPaths.csv' type: CSV
+[2026-06-11T10:06:35] [INFO] Moved 'AsrExclusionPaths.csv' to: '!CSV'
+[2026-06-11T10:06:35] [VERBOSE] Stale unmatched file: 'AssignmentGroupQuestion.vsdx' (modified 2025-04-07)
+[2026-06-11T10:06:35] [INFO] Moved 'AssignmentGroupQuestion.vsdx' to: '_Stale'
+[2026-06-11T10:06:35] [VERBOSE] Matched 'att.FsAg2zRfMl0zdTJ7rKGeHSp7EFamJ4jY1zO6QXBwppc.jpg' type: Images
+[2026-06-11T10:06:35] [INFO] Moved 'att.FsAg2zRfMl0zdTJ7rKGeHSp7EFamJ4jY1zO6QXBwppc.jpg' to: '!Images'
+[2026-06-11T10:06:35] [VERBOSE] Matched 'att.ROmlebxA8En8y4OJvxjJ1eC9TriN9SBABZ41oqPl3BQ.jpg' type: Images
+[2026-06-11T10:06:35] [INFO] Moved 'att.ROmlebxA8En8y4OJvxjJ1eC9TriN9SBABZ41oqPl3BQ.jpg' to: '!Images'
+[2026-06-11T10:06:35] [VERBOSE] Matched 'att.yq8um26uZfsjnk26s0K85Gkyiyrt7sT-hHCTzlHksbQ.jpg' type: Images
+[2026-06-11T10:06:35] [INFO] Moved 'att.yq8um26uZfsjnk26s0K85Gkyiyrt7sT-hHCTzlHksbQ.jpg' to: '!Images'
+[2026-06-11T10:06:35] [VERBOSE] Matched 'AttackSurfaceReductionOnlyExclusions_2025-11-10T22_47_34.569Z.csv' type: CSV
+[2026-06-11T10:06:36] [INFO] Moved 'AttackSurfaceReductionOnlyExclusions_2025-11-10T22_47_34.569Z.csv' to: '!CSV'
+[2026-06-11T10:06:36] [VERBOSE] Stale unmatched file: 'AVAYA_B179_v2.4.4.3.kt' (modified 2024-06-04)
+[2026-06-11T10:06:36] [INFO] Moved 'AVAYA_B179_v2.4.4.3.kt' to: '_Stale'
+[2026-06-11T10:06:36] [VERBOSE] Matched 'azure_pim_utility.py' type: Code
+[2026-06-11T10:06:36] [VERBOSE] Created file category subfolder: '!Code'
+[2026-06-11T10:06:36] [INFO] Moved 'azure_pim_utility.py' to: '!Code'
+[2026-06-11T10:06:36] [VERBOSE] Matched 'badchipflavor-transformed.png' type: Images
+[2026-06-11T10:06:36] [INFO] Moved 'badchipflavor-transformed.png' to: '!Images'
+[2026-06-11T10:06:36] [VERBOSE] Matched 'Birds-Pixel8.m4a' type: Audio
+[2026-06-11T10:06:37] [VERBOSE] Created file category subfolder: '!Audio'
+[2026-06-11T10:06:37] [INFO] Moved 'Birds-Pixel8.m4a' to: '!Audio'
+[2026-06-11T10:06:37] [VERBOSE] Matched 'Birds-ZFlip4.m4a' type: Audio
+[2026-06-11T10:06:37] [INFO] Moved 'Birds-ZFlip4.m4a' to: '!Audio'
+[2026-06-11T10:06:37] [VERBOSE] Matched 'bitwarden_export.csv' type: CSV
+[2026-06-11T10:06:37] [INFO] Moved 'bitwarden_export.csv' to: '!CSV'
+[2026-06-11T10:06:37] [VERBOSE] Matched 'BROADCOOOOOOM.png' type: Images
+[2026-06-11T10:06:37] [INFO] Moved 'BROADCOOOOOOM.png' to: '!Images'
+[2026-06-11T10:06:37] [VERBOSE] Stale unmatched file: 'c6eeb946-9ef9-40a6-9c82-405e08f0517b.ics' (modified 2025-05-12)
+[2026-06-11T10:06:38] [INFO] Moved 'c6eeb946-9ef9-40a6-9c82-405e08f0517b.ics' to: '_Stale'
+[2026-06-11T10:06:38] [VERBOSE] Matched 'CatCleanAll.ps1' type: Code
+[2026-06-11T10:06:38] [INFO] Moved 'CatCleanAll.ps1' to: '!Code'
+[2026-06-11T10:06:38] [VERBOSE] Matched 'CatCleanIMEOnly.ps1' type: Code
+[2026-06-11T10:06:38] [INFO] Moved 'CatCleanIMEOnly.ps1' to: '!Code'
+[2026-06-11T10:06:38] [VERBOSE] Stale unmatched file: 'CcmExec.log' (modified 2025-07-03)
+[2026-06-11T10:06:38] [INFO] Moved 'CcmExec.log' to: '_Stale'
+[2026-06-11T10:06:39] [VERBOSE] Matched 'channels4_profile.jpg' type: Images
+[2026-06-11T10:06:39] [INFO] Moved 'channels4_profile.jpg' to: '!Images'
+[2026-06-11T10:06:39] [VERBOSE] Matched 'client_list_1724694572.csv' type: CSV
+[2026-06-11T10:06:39] [INFO] Moved 'client_list_1724694572.csv' to: '!CSV'
+[2026-06-11T10:06:39] [VERBOSE] Stale unmatched file: 'clockface_v2.1-beta.wfsplugin' (modified 2025-01-04)
+[2026-06-11T10:06:39] [INFO] Moved 'clockface_v2.1-beta.wfsplugin' to: '_Stale'
+[2026-06-11T10:06:39] [VERBOSE] Stale unmatched file: 'com.google.android.webview_126.0.6478.71-647807133_minAPI29(arm64-v8a,armeabi-v7a)(nodpi)_apkmirror.com.apk' (modified 2024-06-15)
+[2026-06-11T10:06:39] [INFO] Moved 'com.google.android.webview_126.0.6478.71-647807133_minAPI29(arm64-v8a,armeabi-v7a)(nodpi)_apkmirror.com.apk' to: '_Stale'
+[2026-06-11T10:06:39] [VERBOSE] Matched 'com.microsoft.launcher.json' type: Code
+[2026-06-11T10:06:40] [INFO] Moved 'com.microsoft.launcher.json' to: '!Code'
+[2026-06-11T10:06:40] [VERBOSE] Matched 'comic selfie.png' type: Images
+[2026-06-11T10:06:40] [INFO] Moved 'comic selfie.png' to: '!Images'
+[2026-06-11T10:06:40] [VERBOSE] Stale unmatched file: 'comic selfie.psd' (modified 2025-11-03)
+[2026-06-11T10:06:40] [INFO] Moved 'comic selfie.psd' to: '_Stale'
+[2026-06-11T10:06:40] [VERBOSE] Matched 'compportal.png' type: Images
+[2026-06-11T10:06:40] [INFO] Moved 'compportal.png' to: '!Images'
+[2026-06-11T10:06:40] [VERBOSE] Matched 'Configuration policies_2024-06-16T06_46_38.480Z.csv' type: CSV
+[2026-06-11T10:06:40] [INFO] Moved 'Configuration policies_2024-06-16T06_46_38.480Z.csv' to: '!CSV'
+[2026-06-11T10:06:41] [VERBOSE] Matched 'Configuration policies_2024-07-11T20_14_57.697Z.csv' type: CSV
+[2026-06-11T10:06:41] [INFO] Moved 'Configuration policies_2024-07-11T20_14_57.697Z.csv' to: '!CSV'
+[2026-06-11T10:06:41] [VERBOSE] Matched 'Configuration policies_2024-07-24T21_48_24.883Z.csv' type: CSV
+[2026-06-11T10:06:41] [INFO] Moved 'Configuration policies_2024-07-24T21_48_24.883Z.csv' to: '!CSV'
+[2026-06-11T10:06:41] [VERBOSE] Matched 'contractors.csv' type: CSV
+[2026-06-11T10:06:41] [INFO] Moved 'contractors.csv' to: '!CSV'
+[2026-06-11T10:06:41] [VERBOSE] Stale unmatched file: 'cp053225.compsig' (modified 2024-02-08)
+[2026-06-11T10:06:41] [INFO] Moved 'cp053225.compsig' to: '_Stale'
+[2026-06-11T10:06:41] [VERBOSE] Stale unmatched file: 'CricutToolInsert.stl' (modified 2025-12-24)
+[2026-06-11T10:06:41] [INFO] Moved 'CricutToolInsert.stl' to: '_Stale'
+[2026-06-11T10:06:42] [VERBOSE] Matched 'CVE-2023-23397.ps1' type: Code
+[2026-06-11T10:06:42] [INFO] Moved 'CVE-2023-23397.ps1' to: '!Code'
+[2026-06-11T10:06:42] [VERBOSE] Stale unmatched file: 'DANG IT.reg' (modified 2024-05-17)
+[2026-06-11T10:06:42] [INFO] Moved 'DANG IT.reg' to: '_Stale'
+[2026-06-11T10:06:42] [VERBOSE] Matched 'Deck the halls with skulls and goblins,  3.mp3' type: Audio
+[2026-06-11T10:06:42] [INFO] Moved 'Deck the halls with skulls and goblins,  3.mp3' to: '!Audio'
+[2026-06-11T10:06:42] [VERBOSE] Matched 'Dell-Trusted-Device_M89PJ_WIN64_7.2.1.0_A65.EXE' type: Installers
+[2026-06-11T10:06:42] [VERBOSE] Created file category subfolder: '!Installers'
+[2026-06-11T10:06:43] [INFO] Moved 'Dell-Trusted-Device_M89PJ_WIN64_7.2.1.0_A65.EXE' to: '!Installers'
+[2026-06-11T10:06:43] [VERBOSE] Matched 'devices (1).csv' type: CSV
+[2026-06-11T10:06:43] [INFO] Moved 'devices (1).csv' to: '!CSV'
+[2026-06-11T10:06:43] [VERBOSE] Matched 'devices (2).csv' type: CSV
+[2026-06-11T10:06:43] [INFO] Moved 'devices (2).csv' to: '!CSV'
+[2026-06-11T10:06:43] [VERBOSE] Matched 'devices (3).csv' type: CSV
+[2026-06-11T10:06:43] [INFO] Moved 'devices (3).csv' to: '!CSV'
+[2026-06-11T10:06:43] [VERBOSE] Matched 'devices (4).csv' type: CSV
+[2026-06-11T10:06:43] [INFO] Moved 'devices (4).csv' to: '!CSV'
+[2026-06-11T10:06:44] [VERBOSE] Matched 'DevicesWithInventory_2d78ff9a-ae12-411a-86ca-2433dcaea3ec.csv' type: CSV
+[2026-06-11T10:06:44] [INFO] Moved 'DevicesWithInventory_2d78ff9a-ae12-411a-86ca-2433dcaea3ec.csv' to: '!CSV'
+[2026-06-11T10:06:44] [VERBOSE] Matched 'DevicesWithInventory_7d547fc2-be0d-4e1c-a783-90dd36668143.csv' type: CSV
+[2026-06-11T10:06:44] [INFO] Moved 'DevicesWithInventory_7d547fc2-be0d-4e1c-a783-90dd36668143.csv' to: '!CSV'
+[2026-06-11T10:06:44] [VERBOSE] Matched 'DevicesWithInventory_98a0013b-8365-4346-9f9a-7c0f600b45e7.csv' type: CSV
+[2026-06-11T10:06:44] [INFO] Moved 'DevicesWithInventory_98a0013b-8365-4346-9f9a-7c0f600b45e7.csv' to: '!CSV'
+[2026-06-11T10:06:44] [VERBOSE] Matched 'DeviceSyncUtils.psm1' type: Code
+[2026-06-11T10:06:44] [INFO] Moved 'DeviceSyncUtils.psm1' to: '!Code'
+[2026-06-11T10:06:44] [VERBOSE] Stale unmatched file: 'DisableCreationOfDS_StoreFilesOnNetworkSharesAndRemovableDrives.zsh' (modified 2025-03-19)
+[2026-06-11T10:06:45] [INFO] Moved 'DisableCreationOfDS_StoreFilesOnNetworkSharesAndRemovableDrives.zsh' to: '_Stale'
+[2026-06-11T10:06:45] [VERBOSE] Matched 'Domain Controller Coverage (1).xlsx' type: Documents
+[2026-06-11T10:06:45] [INFO] Moved 'Domain Controller Coverage (1).xlsx' to: '!Documents'
+[2026-06-11T10:06:45] [VERBOSE] Matched 'Domain Controller Coverage.xlsx' type: Documents
+[2026-06-11T10:06:45] [INFO] Moved 'Domain Controller Coverage.xlsx' to: '!Documents'
+[2026-06-11T10:06:45] [VERBOSE] Matched 'doomguylook.gif' type: Images
+[2026-06-11T10:06:45] [INFO] Moved 'doomguylook.gif' to: '!Images'
+[2026-06-11T10:06:45] [VERBOSE] Matched 'doomstrut.gif' type: Images
+[2026-06-11T10:06:45] [INFO] Moved 'doomstrut.gif' to: '!Images'
+[2026-06-11T10:06:45] [VERBOSE] Stale unmatched file: 'download' (modified 2024-06-18)
+[2026-06-11T10:06:46] [INFO] Moved 'download' to: '_Stale'
+[2026-06-11T10:06:46] [VERBOSE] Matched 'download (1).png' type: Images
+[2026-06-11T10:06:46] [INFO] Moved 'download (1).png' to: '!Images'
+[2026-06-11T10:06:46] [VERBOSE] Matched 'download.png' type: Images
+[2026-06-11T10:06:46] [INFO] Moved 'download.png' to: '!Images'
+[2026-06-11T10:06:46] [VERBOSE] Matched 'downloads_cleaner.py' type: Code
+[2026-06-11T10:06:46] [INFO] Moved 'downloads_cleaner.py' to: '!Code'
+[2026-06-11T10:06:46] [VERBOSE] Matched 'dragon-tail-war-staff.png' type: Images
+[2026-06-11T10:06:46] [INFO] Moved 'dragon-tail-war-staff.png' to: '!Images'
+[2026-06-11T10:06:47] [VERBOSE] Stale unmatched file: 'dxvk.conf' (modified 2025-03-09)
+[2026-06-11T10:06:47] [INFO] Moved 'dxvk.conf' to: '_Stale'
+[2026-06-11T10:06:47] [VERBOSE] Matched 'ebase-main-logo-files.png' type: Images
+[2026-06-11T10:06:47] [INFO] Moved 'ebase-main-logo-files.png' to: '!Images'
+[2026-06-11T10:06:47] [VERBOSE] Matched 'ebase-main-logo-files.svg' type: Images
+[2026-06-11T10:06:47] [INFO] Moved 'ebase-main-logo-files.svg' to: '!Images'
+[2026-06-11T10:06:47] [VERBOSE] Matched 'eBase-sd36-logo.png' type: Images
+[2026-06-11T10:06:47] [INFO] Moved 'eBase-sd36-logo.png' to: '!Images'
+[2026-06-11T10:06:47] [VERBOSE] Stale unmatched file: 'edubuntu-24.04.2-desktop-amd64.iso.torrent' (modified 2025-04-16)
+[2026-06-11T10:06:48] [INFO] Moved 'edubuntu-24.04.2-desktop-amd64.iso.torrent' to: '_Stale'
+[2026-06-11T10:06:48] [VERBOSE] Matched 'ehomebbx.jpg' type: Images
+[2026-06-11T10:06:48] [INFO] Moved 'ehomebbx.jpg' to: '!Images'
+[2026-06-11T10:06:48] [VERBOSE] Matched 'empty-leather-chocolate-or-brown-colored-wallet-with-spider-web-and-fly-flying-out-of-it-illustration-drawing-with-cartoon-comic-simple-flat-art-style-isolated-on-plain-light-brown-background-free-vector.jpg' type: Images
+[2026-06-11T10:06:48] [INFO] Moved 'empty-leather-chocolate-or-brown-colored-wallet-with-spider-web-and-fly-flying-out-of-it-illustration-drawing-with-cartoon-comic-simple-flat-art-style-isolated-on-plain-light-brown-background-free-vector.jpg' to: '!Images'
+[2026-06-11T10:06:48] [VERBOSE] Matched 'emummc.txt' type: Documents
+[2026-06-11T10:06:48] [INFO] Moved 'emummc.txt' to: '!Documents'
+[2026-06-11T10:06:48] [VERBOSE] Stale unmatched file: 'eventical.ics' (modified 2025-04-23)
+[2026-06-11T10:06:48] [INFO] Moved 'eventical.ics' to: '_Stale'
+[2026-06-11T10:06:49] [VERBOSE] Matched 'ExportErrors_2024_1_29_9_44_42.csv' type: CSV
+[2026-06-11T10:06:49] [INFO] Moved 'ExportErrors_2024_1_29_9_44_42.csv' to: '!CSV'
+[2026-06-11T10:06:49] [VERBOSE] Stale unmatched file: 'fancontrol.reg' (modified 2024-05-21)
+[2026-06-11T10:06:49] [INFO] Moved 'fancontrol.reg' to: '_Stale'
+[2026-06-11T10:06:49] [VERBOSE] Stale unmatched file: 'Files.stable.appinstaller' (modified 2025-03-01)
+[2026-06-11T10:06:49] [INFO] Moved 'Files.stable.appinstaller' to: '_Stale'
+[2026-06-11T10:06:49] [VERBOSE] Matched 'first-aid-equipment-supplies-facilities-pdf-en.pdf' type: Documents
+[2026-06-11T10:06:49] [INFO] Moved 'first-aid-equipment-supplies-facilities-pdf-en.pdf' to: '!Documents'
+[2026-06-11T10:06:49] [VERBOSE] Matched 'frydrool.gif' type: Images
+[2026-06-11T10:06:49] [INFO] Moved 'frydrool.gif' to: '!Images'
+[2026-06-11T10:06:50] [VERBOSE] Stale unmatched file: 'ftpd.nro' (modified 2024-05-11)
+[2026-06-11T10:06:50] [INFO] Moved 'ftpd.nro' to: '_Stale'
+[2026-06-11T10:06:50] [VERBOSE] Stale unmatched file: 'fusee.bin' (modified 2025-02-22)
+[2026-06-11T10:06:50] [INFO] Moved 'fusee.bin' to: '_Stale'
+[2026-06-11T10:06:50] [VERBOSE] Stale unmatched file: 'GatekeeperEnabler.zsh' (modified 2025-03-11)
+[2026-06-11T10:06:50] [INFO] Moved 'GatekeeperEnabler.zsh' to: '_Stale'
+[2026-06-11T10:06:50] [VERBOSE] Stale unmatched file: 'gba_bios.bin' (modified 2024-05-14)
+[2026-06-11T10:06:50] [INFO] Moved 'gba_bios.bin' to: '_Stale'
+[2026-06-11T10:06:50] [VERBOSE] Matched 'Gemini_example_permissionsTable.csv' type: CSV
+[2026-06-11T10:06:51] [INFO] Moved 'Gemini_example_permissionsTable.csv' to: '!CSV'
+[2026-06-11T10:06:51] [VERBOSE] Matched 'Gemini_example_permissionsTable.csv.xlsx' type: Documents
+[2026-06-11T10:06:51] [INFO] Moved 'Gemini_example_permissionsTable.csv.xlsx' to: '!Documents'
+[2026-06-11T10:06:51] [VERBOSE] Matched 'Gemini_example_permissionsTable.xlsx' type: Documents
+[2026-06-11T10:06:51] [INFO] Moved 'Gemini_example_permissionsTable.xlsx' to: '!Documents'
+[2026-06-11T10:06:52] [VERBOSE] Matched 'Get-RegistryKeyLastWriteTime.ps1' type: Code
+[2026-06-11T10:06:52] [INFO] Moved 'Get-RegistryKeyLastWriteTime.ps1' to: '!Code'
+[2026-06-11T10:06:52] [VERBOSE] Matched 'Get-Verb.csv' type: CSV
+[2026-06-11T10:06:52] [INFO] Moved 'Get-Verb.csv' to: '!CSV'
+[2026-06-11T10:06:52] [VERBOSE] Matched 'gethelptest.ps1' type: Code
+[2026-06-11T10:06:52] [INFO] Moved 'gethelptest.ps1' to: '!Code'
+[2026-06-11T10:06:52] [VERBOSE] Matched 'getinthesuitgordon.jpg' type: Images
+[2026-06-11T10:06:53] [INFO] Moved 'getinthesuitgordon.jpg' to: '!Images'
+[2026-06-11T10:06:53] [VERBOSE] Stale unmatched file: 'gitea.1.23.5.nupkg' (modified 2025-03-27)
+[2026-06-11T10:06:53] [INFO] Moved 'gitea.1.23.5.nupkg' to: '_Stale'
+[2026-06-11T10:06:53] [VERBOSE] Matched 'github-recovery-codes.txt' type: Documents
+[2026-06-11T10:06:53] [INFO] Moved 'github-recovery-codes.txt' to: '!Documents'
+[2026-06-11T10:06:53] [VERBOSE] Matched 'gotya.png' type: Images
+[2026-06-11T10:06:53] [INFO] Moved 'gotya.png' to: '!Images'
+[2026-06-11T10:06:53] [VERBOSE] Matched 'gotyaoof.png' type: Images
+[2026-06-11T10:06:54] [INFO] Moved 'gotyaoof.png' to: '!Images'
+[2026-06-11T10:06:54] [VERBOSE] Matched 'GP.png' type: Images
+[2026-06-11T10:06:54] [INFO] Moved 'GP.png' to: '!Images'
+[2026-06-11T10:06:54] [VERBOSE] Matched 'graphv1metadata.json' type: Code
+[2026-06-11T10:06:54] [INFO] Moved 'graphv1metadata.json' to: '!Code'
+[2026-06-11T10:06:54] [VERBOSE] Matched 'graphv1metadata.xml' type: Code
+[2026-06-11T10:06:54] [INFO] Moved 'graphv1metadata.xml' to: '!Code'
+[2026-06-11T10:06:54] [VERBOSE] Matched 'GraphXRaySession (1).ps1' type: Code
+[2026-06-11T10:06:54] [INFO] Moved 'GraphXRaySession (1).ps1' to: '!Code'
+[2026-06-11T10:06:55] [VERBOSE] Matched 'GraphXRaySession.ps1' type: Code
+[2026-06-11T10:06:55] [INFO] Moved 'GraphXRaySession.ps1' to: '!Code'
+[2026-06-11T10:06:55] [VERBOSE] Matched 'GroupRemoveMembersTemplate.csv' type: CSV
+[2026-06-11T10:06:55] [INFO] Moved 'GroupRemoveMembersTemplate.csv' to: '!CSV'
+[2026-06-11T10:06:55] [VERBOSE] Stale unmatched file: 'grub.cfg' (modified 2025-04-23)
+[2026-06-11T10:06:55] [INFO] Moved 'grub.cfg' to: '_Stale'
+[2026-06-11T10:06:55] [VERBOSE] Matched 'HealthChecker (1).ps1' type: Code
+[2026-06-11T10:06:55] [INFO] Moved 'HealthChecker (1).ps1' to: '!Code'
+[2026-06-11T10:06:55] [VERBOSE] Matched 'HealthChecker (2).ps1' type: Code
+[2026-06-11T10:06:56] [INFO] Moved 'HealthChecker (2).ps1' to: '!Code'
+[2026-06-11T10:06:56] [VERBOSE] Matched 'HealthChecker.ps1' type: Code
+[2026-06-11T10:06:56] [INFO] Moved 'HealthChecker.ps1' to: '!Code'
+[2026-06-11T10:06:56] [VERBOSE] Matched 'hehehe.png' type: Images
+[2026-06-11T10:06:56] [INFO] Moved 'hehehe.png' to: '!Images'
+[2026-06-11T10:06:56] [VERBOSE] Stale unmatched file: 'hekate_ctcaer_6.1.1.bin' (modified 2024-05-11)
+[2026-06-11T10:06:56] [INFO] Moved 'hekate_ctcaer_6.1.1.bin' to: '_Stale'
+[2026-06-11T10:06:56] [VERBOSE] Stale unmatched file: 'hekate_ipl.ini' (modified 2024-05-11)
+[2026-06-11T10:06:56] [INFO] Moved 'hekate_ipl.ini' to: '_Stale'
+[2026-06-11T10:06:56] [VERBOSE] Stale unmatched file: 'How Declarative Device Management Powers the Future of K-12 IT-2.ics' (modified 2025-04-23)
+[2026-06-11T10:06:57] [INFO] Moved 'How Declarative Device Management Powers the Future of K-12 IT-2.ics' to: '_Stale'
+[2026-06-11T10:06:57] [VERBOSE] Matched 'howdy.jpg' type: Images
+[2026-06-11T10:06:57] [INFO] Moved 'howdy.jpg' to: '!Images'
+[2026-06-11T10:06:57] [VERBOSE] Matched 'HPE_a00106086en_us_ClearPass_Integration-Guide_Microsoft_InTune.pdf' type: Documents
+[2026-06-11T10:06:57] [INFO] Moved 'HPE_a00106086en_us_ClearPass_Integration-Guide_Microsoft_InTune.pdf' to: '!Documents'
+[2026-06-11T10:06:57] [VERBOSE] Matched 'HPE_a00112290en_us_ClearPass Integration Guide Microsoft InTune.pdf' type: Documents
+[2026-06-11T10:06:57] [INFO] Moved 'HPE_a00112290en_us_ClearPass Integration Guide Microsoft InTune.pdf' to: '!Documents'
+[2026-06-11T10:06:57] [VERBOSE] Stale unmatched file: 'ilo5_307.fwpkg' (modified 2024-08-27)
+[2026-06-11T10:06:57] [INFO] Moved 'ilo5_307.fwpkg' to: '_Stale'
+[2026-06-11T10:06:58] [VERBOSE] Stale unmatched file: 'Image (1).jfif' (modified 2025-05-30)
+[2026-06-11T10:06:58] [INFO] Moved 'Image (1).jfif' to: '_Stale'
+[2026-06-11T10:06:58] [VERBOSE] Matched 'IMS Computer.jpg' type: Images
+[2026-06-11T10:06:58] [INFO] Moved 'IMS Computer.jpg' to: '!Images'
+[2026-06-11T10:06:58] [VERBOSE] Matched 'imsLogo.png' type: Images
+[2026-06-11T10:06:58] [INFO] Moved 'imsLogo.png' to: '!Images'
+[2026-06-11T10:06:58] [VERBOSE] Matched 'imsLogoAndroidWebApp-Enhanced-SR-2.png' type: Images
+[2026-06-11T10:06:58] [INFO] Moved 'imsLogoAndroidWebApp-Enhanced-SR-2.png' to: '!Images'
+[2026-06-11T10:06:59] [VERBOSE] Matched 'imsLogoAndroidWebApp-Enhanced-SR-2.tif' type: Images
+[2026-06-11T10:06:59] [INFO] Moved 'imsLogoAndroidWebApp-Enhanced-SR-2.tif' to: '!Images'
+[2026-06-11T10:06:59] [VERBOSE] Matched 'imsLogoAndroidWebApp-Enhanced-SR-Enhanced-SR.png' type: Images
+[2026-06-11T10:06:59] [INFO] Moved 'imsLogoAndroidWebApp-Enhanced-SR-Enhanced-SR.png' to: '!Images'
+[2026-06-11T10:06:59] [VERBOSE] Matched 'imsLogoAndroidWebApp-Enhanced-SR-Enhanced-SR.tif' type: Images
+[2026-06-11T10:07:08] [INFO] Sort-DownloadsFolder started.
+
+Downloads folder : C:\Users\eaton_ryan\Downloads
+Large file prefix: !LRG_
+Stale folder name: _Stale
+Log directory    : D:\Sort-DownloadsFolder
+Custom ext. map  : No
+Overrides applied: Yes
+Large file size  : >100MB
+Min. file age    : 30 minutes
+Files stale after: 7 days
+Cleanup reminder : 15 loose files
+
+[2026-06-11T10:07:09] [INFO] Processing 173 files in current user's Downloads folder...
+[2026-06-11T10:07:09] [VERBOSE] Matched 'imsLogoAndroidWebApp-Enhanced-SR.png' type: Images
+[2026-06-11T10:07:09] [INFO] Moved 'imsLogoAndroidWebApp-Enhanced-SR.png' to: '!Images'
+[2026-06-11T10:07:09] [VERBOSE] Matched 'imsLogoAndroidWebApp-Enhanced-SR.tif' type: Images
+[2026-06-11T10:07:09] [INFO] Moved 'imsLogoAndroidWebApp-Enhanced-SR.tif' to: '!Images'
+[2026-06-11T10:07:09] [VERBOSE] Matched 'imsLogoAndroidWebApp.png' type: Images
+[2026-06-11T10:07:09] [INFO] Moved 'imsLogoAndroidWebApp.png' to: '!Images'
+[2026-06-11T10:07:09] [VERBOSE] Matched 'IncludedCACertificateReportForMSFT.csv' type: CSV
+[2026-06-11T10:07:09] [INFO] Moved 'IncludedCACertificateReportForMSFT.csv' to: '!CSV'
+[2026-06-11T10:07:09] [VERBOSE] Stale unmatched file: 'Info.plist' (modified 2024-08-11)
+[2026-06-11T10:07:10] [INFO] Moved 'Info.plist' to: '_Stale'
+[2026-06-11T10:07:10] [VERBOSE] Matched 'instructionmanual-instruction-manual-btd-600-btd600-enpdfquickguides-quick-guide-btd-600-btd600-en.pdf' type: Documents
+[2026-06-11T10:07:10] [INFO] Moved 'instructionmanual-instruction-manual-btd-600-btd600-enpdfquickguides-quick-guide-btd-600-btd600-en.pdf' to: '!Documents'
+[2026-06-11T10:07:10] [VERBOSE] Stale unmatched file: 'Intune - iOS Devices_Token_2026-04-23T23-13-33Z_smime.p7m' (modified 2026-04-23)
+[2026-06-11T10:07:10] [INFO] Moved 'Intune - iOS Devices_Token_2026-04-23T23-13-33Z_smime.p7m' to: '_Stale'
+[2026-06-11T10:07:10] [VERBOSE] Matched 'Intune_SD36_Android_Device_Defender_Configuration_2025-04-30T17_08_07.841Z.csv' type: CSV
+[2026-06-11T10:07:10] [INFO] Moved 'Intune_SD36_Android_Device_Defender_Configuration_2025-04-30T17_08_07.841Z.csv' to: '!CSV'
+[2026-06-11T10:07:10] [VERBOSE] Stale unmatched file: 'IntuneCSR (1).csr' (modified 2026-03-04)
+[2026-06-11T10:07:10] [INFO] Moved 'IntuneCSR (1).csr' to: '_Stale'
+[2026-06-11T10:07:10] [VERBOSE] Stale unmatched file: 'IntuneCSR.csr' (modified 2025-02-25)
+[2026-06-11T10:07:11] [INFO] Moved 'IntuneCSR.csr' to: '_Stale'
+[2026-06-11T10:07:11] [VERBOSE] Matched 'IntuneiOS12.csv' type: CSV
+[2026-06-11T10:07:11] [INFO] Moved 'IntuneiOS12.csv' to: '!CSV'
+[2026-06-11T10:07:11] [VERBOSE] Matched 'Inventory.csv' type: CSV
+[2026-06-11T10:07:11] [INFO] Moved 'Inventory.csv' to: '!CSV'
+[2026-06-11T10:07:11] [VERBOSE] Matched 'iOS-Permissions-Example2.xlsx' type: Documents
+[2026-06-11T10:07:11] [INFO] Moved 'iOS-Permissions-Example2.xlsx' to: '!Documents'
+[2026-06-11T10:07:11] [VERBOSE] Stale unmatched file: 'ipxe.efi' (modified 2024-05-15)
+[2026-06-11T10:07:11] [INFO] Moved 'ipxe.efi' to: '_Stale'
+[2026-06-11T10:07:11] [VERBOSE] Stale unmatched file: 'ipxe(1).efi' (modified 2024-12-05)
+[2026-06-11T10:07:12] [INFO] Moved 'ipxe(1).efi' to: '_Stale'
+[2026-06-11T10:07:12] [VERBOSE] Matched 'IT Pro-D Hockey Card 7.docx' type: Documents
+[2026-06-11T10:07:12] [INFO] Moved 'IT Pro-D Hockey Card 7.docx' to: '!Documents'
+[2026-06-11T10:07:12] [VERBOSE] Matched 'JJHHH_-_v1.2.zip' type: Archives
+[2026-06-11T10:07:12] [VERBOSE] Created file category subfolder: '!Archives'
+[2026-06-11T10:07:12] [INFO] Moved 'JJHHH_-_v1.2.zip' to: '!Archives'
+[2026-06-11T10:07:12] [VERBOSE] Stale unmatched file: 'JKSV.nro' (modified 2024-05-11)
+[2026-06-11T10:07:12] [INFO] Moved 'JKSV.nro' to: '_Stale'
+[2026-06-11T10:07:12] [VERBOSE] Matched 'JOHN_jamf_devices_2026-04-17_ValueOnly.xlsx' type: Documents
+[2026-06-11T10:07:12] [INFO] Moved 'JOHN_jamf_devices_2026-04-17_ValueOnly.xlsx' to: '!Documents'
+[2026-06-11T10:07:12] [VERBOSE] Stale unmatched file: 'JUMPER.pdn' (modified 2025-02-28)
+[2026-06-11T10:07:13] [INFO] Moved 'JUMPER.pdn' to: '_Stale'
+[2026-06-11T10:07:13] [VERBOSE] Matched 'JUMPER.png' type: Images
+[2026-06-11T10:07:13] [INFO] Moved 'JUMPER.png' to: '!Images'
+[2026-06-11T10:07:13] [VERBOSE] Matched 'latest-x64.yml' type: Code
+[2026-06-11T10:07:13] [INFO] Moved 'latest-x64.yml' to: '!Code'
+[2026-06-11T10:07:13] [VERBOSE] Stale unmatched file: 'learn.microsoft.com.cer' (modified 2024-09-26)
+[2026-06-11T10:07:13] [INFO] Moved 'learn.microsoft.com.cer' to: '_Stale'
+[2026-06-11T10:07:13] [VERBOSE] Matched 'LeaveWorkHelper_ChatContext_Full.json' type: Code
+[2026-06-11T10:07:13] [INFO] Moved 'LeaveWorkHelper_ChatContext_Full.json' to: '!Code'
+[2026-06-11T10:07:13] [VERBOSE] Matched 'LeaveWorkHelper_Context.json' type: Code
+[2026-06-11T10:07:14] [INFO] Moved 'LeaveWorkHelper_Context.json' to: '!Code'
+[2026-06-11T10:07:14] [VERBOSE] Matched 'LeaveWorkHelper_Context.txt' type: Documents
+[2026-06-11T10:07:14] [INFO] Moved 'LeaveWorkHelper_Context.txt' to: '!Documents'
+[2026-06-11T10:07:14] [VERBOSE] Matched 'LeaveWorkHelper_Contextv2.txt' type: Documents
+[2026-06-11T10:07:14] [INFO] Moved 'LeaveWorkHelper_Contextv2.txt' to: '!Documents'
+[2026-06-11T10:07:14] [VERBOSE] Matched 'LeaveWorkHelper_Project_Context_v2.txt' type: Documents
+[2026-06-11T10:07:14] [INFO] Moved 'LeaveWorkHelper_Project_Context_v2.txt' to: '!Documents'
+[2026-06-11T10:07:14] [VERBOSE] Matched 'LeaveWorkHelper_Project_Context_v2[maybeincomplete].json' type: Code
+[2026-06-11T10:07:14] [INFO] Moved 'LeaveWorkHelper_Project_Context_v2[maybeincomplete].json' to: '!Code'
+[2026-06-11T10:07:14] [VERBOSE] Matched 'Local Travel Exp Claim Kilometerage Fillable.pdf' type: Documents
+[2026-06-11T10:07:14] [INFO] Moved 'Local Travel Exp Claim Kilometerage Fillable.pdf' to: '!Documents'
+[2026-06-11T10:07:14] [VERBOSE] Stale unmatched file: 'Login Window_ Staff.mobileconfig' (modified 2025-03-11)
+[2026-06-11T10:07:15] [INFO] Moved 'Login Window_ Staff.mobileconfig' to: '_Stale'
+[2026-06-11T10:07:15] [VERBOSE] Matched 'LSASSTheft-MECMPolicySecretTheft-PSScript-02Mar2026.txt' type: Documents
+[2026-06-11T10:07:15] [INFO] Moved 'LSASSTheft-MECMPolicySecretTheft-PSScript-02Mar2026.txt' to: '!Documents'
+[2026-06-11T10:07:15] [VERBOSE] Stale unmatched file: 'Magisk-v27.0.apk' (modified 2024-05-29)
+[2026-06-11T10:07:15] [INFO] Moved 'Magisk-v27.0.apk' to: '_Stale'
+[2026-06-11T10:07:15] [VERBOSE] Matched 'main 4.ps1' type: Code
+[2026-06-11T10:07:15] [INFO] Moved 'main 4.ps1' to: '!Code'
+[2026-06-11T10:07:15] [VERBOSE] Matched 'maskable_icon (1).png' type: Images
+[2026-06-11T10:07:15] [INFO] Moved 'maskable_icon (1).png' to: '!Images'
+[2026-06-11T10:07:15] [VERBOSE] Matched 'maskable_icon_x512 (1).png' type: Images
+[2026-06-11T10:07:16] [INFO] Moved 'maskable_icon_x512 (1).png' to: '!Images'
+[2026-06-11T10:07:16] [VERBOSE] Matched 'maskable_icon_x512 (2).png' type: Images
+[2026-06-11T10:07:16] [INFO] Moved 'maskable_icon_x512 (2).png' to: '!Images'
+[2026-06-11T10:07:16] [VERBOSE] Matched 'maskable_icon_x512.png' type: Images
+[2026-06-11T10:07:16] [INFO] Moved 'maskable_icon_x512.png' to: '!Images'
+[2026-06-11T10:07:16] [VERBOSE] Matched 'maskable_icon.png' type: Images
+[2026-06-11T10:07:16] [INFO] Moved 'maskable_icon.png' to: '!Images'
+[2026-06-11T10:07:16] [VERBOSE] Matched 'mde-urls-commercial.xlsx' type: Documents
+[2026-06-11T10:07:16] [INFO] Moved 'mde-urls-commercial.xlsx' to: '!Documents'
+[2026-06-11T10:07:16] [VERBOSE] Matched 'MDEClientAnalyzerResult_2604030301.zip' type: Archives
+[2026-06-11T10:07:16] [INFO] Moved 'MDEClientAnalyzerResult_2604030301.zip' to: '!Archives'
+[2026-06-11T10:07:17] [VERBOSE] Stale unmatched file: 'MDM_ Microsoft Corporation_Certificate (1).pem' (modified 2026-03-04)
+[2026-06-11T10:07:17] [INFO] Moved 'MDM_ Microsoft Corporation_Certificate (1).pem' to: '_Stale'
+[2026-06-11T10:07:17] [VERBOSE] Stale unmatched file: 'MDM_ Microsoft Corporation_Certificate.pem' (modified 2025-02-25)
+[2026-06-11T10:07:17] [INFO] Moved 'MDM_ Microsoft Corporation_Certificate.pem' to: '_Stale'
+[2026-06-11T10:07:17] [VERBOSE] Matched 'me_upscayl_4x_remacri-4x.png' type: Images
+[2026-06-11T10:07:17] [INFO] Moved 'me_upscayl_4x_remacri-4x.png' to: '!Images'
+[2026-06-11T10:07:17] [VERBOSE] Matched 'me_upscayl_4x_upscayl-standard-4x.png' type: Images
+[2026-06-11T10:07:17] [INFO] Moved 'me_upscayl_4x_upscayl-standard-4x.png' to: '!Images'
+[2026-06-11T10:07:17] [VERBOSE] Matched 'me.jpg' type: Images
+[2026-06-11T10:07:17] [INFO] Moved 'me.jpg' to: '!Images'
+[2026-06-11T10:07:18] [VERBOSE] Stale unmatched file: 'me.psd' (modified 2025-02-01)
+[2026-06-11T10:07:18] [INFO] Moved 'me.psd' to: '_Stale'
+[2026-06-11T10:07:18] [VERBOSE] Stale unmatched file: 'memory-usage_v2.1-beta.wfsplugin' (modified 2025-01-04)
+[2026-06-11T10:07:18] [INFO] Moved 'memory-usage_v2.1-beta.wfsplugin' to: '_Stale'
+[2026-06-11T10:07:18] [VERBOSE] Matched 'Messenger_creation_834b4ae6-1c23-4f13-81f3-afed3c7812f2~3.jpg' type: Images
+[2026-06-11T10:07:18] [INFO] Moved 'Messenger_creation_834b4ae6-1c23-4f13-81f3-afed3c7812f2~3.jpg' to: '!Images'
+[2026-06-11T10:07:18] [VERBOSE] Stale unmatched file: 'Microsoft Build - Digital (1).ics' (modified 2025-05-12)
+[2026-06-11T10:07:18] [INFO] Moved 'Microsoft Build - Digital (1).ics' to: '_Stale'
+[2026-06-11T10:07:18] [VERBOSE] Stale unmatched file: 'Microsoft Build - Digital.ics' (modified 2025-05-12)
+[2026-06-11T10:07:19] [INFO] Moved 'Microsoft Build - Digital.ics' to: '_Stale'
+[2026-06-11T10:07:19] [VERBOSE] Matched 'MicrosoftBuild2025_ConvinceYourManager.docx' type: Documents
+[2026-06-11T10:07:19] [INFO] Moved 'MicrosoftBuild2025_ConvinceYourManager.docx' to: '!Documents'
+[2026-06-11T10:07:19] [VERBOSE] Matched 'Mitigating-Pass-the-Hash-Attacks-and-Other-Credential-Theft-Version-2.pdf' type: Documents
+[2026-06-11T10:07:19] [INFO] Moved 'Mitigating-Pass-the-Hash-Attacks-and-Other-Credential-Theft-Version-2.pdf' to: '!Documents'
+[2026-06-11T10:07:19] [VERBOSE] Matched 'Modern-Work-Plan-Comparison-Enterprise.pdf' type: Documents
+[2026-06-11T10:07:19] [INFO] Moved 'Modern-Work-Plan-Comparison-Enterprise.pdf' to: '!Documents'
+[2026-06-11T10:07:19] [VERBOSE] Stale unmatched file: 'monofonto rg.otf' (modified 2022-03-07)
+[2026-06-11T10:07:19] [INFO] Moved 'monofonto rg.otf' to: '_Stale'
+[2026-06-11T10:07:19] [VERBOSE] Matched 'navigator.png' type: Images
+[2026-06-11T10:07:19] [INFO] Moved 'navigator.png' to: '!Images'
+[2026-06-11T10:07:19] [VERBOSE] Matched 'ne6ukkej06t71.png' type: Images
+[2026-06-11T10:07:20] [INFO] Moved 'ne6ukkej06t71.png' to: '!Images'
+[2026-06-11T10:07:20] [VERBOSE] Matched 'NewJamfiPadAppsReport-Aug13_25.xlsx' type: Documents
+[2026-06-11T10:07:20] [INFO] Moved 'NewJamfiPadAppsReport-Aug13_25.xlsx' to: '!Documents'
+[2026-06-11T10:07:20] [VERBOSE] Stale unmatched file: 'nrftl_midipack_zdoom.wad' (modified 2024-11-01)
+[2026-06-11T10:07:20] [INFO] Moved 'nrftl_midipack_zdoom.wad' to: '_Stale'
+[2026-06-11T10:07:20] [VERBOSE] Stale unmatched file: 'NX-Shell.nro' (modified 2024-05-11)
+[2026-06-11T10:07:20] [INFO] Moved 'NX-Shell.nro' to: '_Stale'
+[2026-06-11T10:07:20] [VERBOSE] Stale unmatched file: 'nyx_usb_max_rate__run_only_once_per_windows_pc.reg' (modified 2024-05-11)
+[2026-06-11T10:07:20] [INFO] Moved 'nyx_usb_max_rate__run_only_once_per_windows_pc.reg' to: '_Stale'
+[2026-06-11T10:07:20] [VERBOSE] Matched 'OAADCS Workbook Surrey Schools.xlsx' type: Documents
+[2026-06-11T10:07:20] [INFO] Moved 'OAADCS Workbook Surrey Schools.xlsx' to: '!Documents'
+[2026-06-11T10:07:21] [VERBOSE] Matched 'OFA 2 Reference Manual.pdf' type: Documents
+[2026-06-11T10:07:21] [INFO] Moved 'OFA 2 Reference Manual.pdf' to: '!Documents'
+[2026-06-11T10:07:21] [VERBOSE] Matched 'OfficeSetup.exe' type: Installers
+[2026-06-11T10:07:21] [INFO] Moved 'OfficeSetup.exe' to: '!Installers'
+[2026-06-11T10:07:21] [VERBOSE] Matched 'OH NO.png' type: Images
+[2026-06-11T10:07:21] [INFO] Moved 'OH NO.png' to: '!Images'
+[2026-06-11T10:07:21] [VERBOSE] Matched 'OnevinnWSFree.pdf' type: Documents
+[2026-06-11T10:07:21] [INFO] Moved 'OnevinnWSFree.pdf' to: '!Documents'
+[2026-06-11T10:07:21] [VERBOSE] Matched 'output.txt' type: Documents
+[2026-06-11T10:07:21] [INFO] Moved 'output.txt' to: '!Documents'
+[2026-06-11T10:07:21] [VERBOSE] Stale unmatched file: 'P89_3.30_09_21_2023.signed (1).flash' (modified 2024-02-13)
+[2026-06-11T10:07:21] [INFO] Moved 'P89_3.30_09_21_2023.signed (1).flash' to: '_Stale'
+[2026-06-11T10:07:22] [VERBOSE] Stale unmatched file: 'P89_3.30_09_21_2023.signed.flash' (modified 2024-02-08)
+[2026-06-11T10:07:22] [INFO] Moved 'P89_3.30_09_21_2023.signed.flash' to: '_Stale'
+[2026-06-11T10:07:22] [VERBOSE] Matched 'pandoc-3.9.0.2-windows-x86_64.msi' type: Installers
+[2026-06-11T10:07:22] [INFO] Moved 'pandoc-3.9.0.2-windows-x86_64.msi' to: '!Installers'
+[2026-06-11T10:07:22] [VERBOSE] Matched 'PC Computer - Fallout 4 - Condition Clips.png' type: Images
+[2026-06-11T10:07:22] [INFO] Moved 'PC Computer - Fallout 4 - Condition Clips.png' to: '!Images'
+[2026-06-11T10:07:22] [VERBOSE] Matched 'Phone Link.pdf' type: Documents
+[2026-06-11T10:07:22] [INFO] Moved 'Phone Link.pdf' to: '!Documents'
+[2026-06-11T10:07:22] [VERBOSE] Matched 'pigeon_meme_fighbird-1200x806_waifu2x_art_noise3_scale.png' type: Images
+[2026-06-11T10:07:23] [INFO] Moved 'pigeon_meme_fighbird-1200x806_waifu2x_art_noise3_scale.png' to: '!Images'
+[2026-06-11T10:07:23] [VERBOSE] Matched 'pigeon_meme_fighbird-1200x806.webp' type: Images
+[2026-06-11T10:07:23] [INFO] Moved 'pigeon_meme_fighbird-1200x806.webp' to: '!Images'
+[2026-06-11T10:07:23] [VERBOSE] Matched 'pigeon_wallet.png' type: Images
+[2026-06-11T10:07:23] [INFO] Moved 'pigeon_wallet.png' to: '!Images'
+[2026-06-11T10:07:23] [VERBOSE] Stale unmatched file: 'Plainext_v1.83.rmskin' (modified 2024-01-10)
+[2026-06-11T10:07:23] [INFO] Moved 'Plainext_v1.83.rmskin' to: '_Stale'
+[2026-06-11T10:07:23] [VERBOSE] Matched 'PowerShell_Approved_Verbs_CheatSheet.pdf' type: Documents
+[2026-06-11T10:07:24] [INFO] Moved 'PowerShell_Approved_Verbs_CheatSheet.pdf' to: '!Documents'
+[2026-06-11T10:07:24] [VERBOSE] Matched 'PowerShell_Verbs_Cheat_Sheet_Landscape_Table.pdf' type: Documents
+[2026-06-11T10:07:24] [INFO] Moved 'PowerShell_Verbs_Cheat_Sheet_Landscape_Table.pdf' to: '!Documents'
+[2026-06-11T10:07:24] [VERBOSE] Matched 'PowerShell_Verbs_Cheat_Sheet_Legal_Final2.pdf' type: Documents
+[2026-06-11T10:07:24] [INFO] Moved 'PowerShell_Verbs_Cheat_Sheet_Legal_Final2.pdf' to: '!Documents'
+[2026-06-11T10:07:24] [VERBOSE] Matched 'PowerShell_Verbs_Cheat_Sheet_Legal_Table_Shaded.pdf' type: Documents
+[2026-06-11T10:07:24] [INFO] Moved 'PowerShell_Verbs_Cheat_Sheet_Legal_Table_Shaded.pdf' to: '!Documents'
+[2026-06-11T10:07:24] [VERBOSE] Matched 'PowerShell_Verbs_Cheat_Sheet.docx' type: Documents
+[2026-06-11T10:07:24] [INFO] Moved 'PowerShell_Verbs_Cheat_Sheet.docx' to: '!Documents'
+[2026-06-11T10:07:25] [VERBOSE] Matched 'PowerShell_Verbs_Cheat_Sheet.pdf' type: Documents
+[2026-06-11T10:07:25] [INFO] Moved 'PowerShell_Verbs_Cheat_Sheet.pdf' to: '!Documents'
+[2026-06-11T10:07:25] [VERBOSE] Stale unmatched file: 'profile.mobileconfig' (modified 2025-06-13)
+[2026-06-11T10:07:25] [INFO] Moved 'profile.mobileconfig' to: '_Stale'
+[2026-06-11T10:07:25] [VERBOSE] Matched 'Reimagine the character in the first photo as a re (1).png' type: Images
+[2026-06-11T10:07:25] [INFO] Moved 'Reimagine the character in the first photo as a re (1).png' to: '!Images'
+[2026-06-11T10:07:25] [VERBOSE] Matched 'Reimagine the character in the first photo as a re.png' type: Images
+[2026-06-11T10:07:25] [INFO] Moved 'Reimagine the character in the first photo as a re.png' to: '!Images'
+[2026-06-11T10:07:25] [VERBOSE] Matched 'Reimagine this character as a real adult human wit.png' type: Images
+[2026-06-11T10:07:26] [INFO] Moved 'Reimagine this character as a real adult human wit.png' to: '!Images'
+[2026-06-11T10:07:26] [VERBOSE] Matched 'Remove-DuplicateEntriesFromIanaMappings.ps1' type: Code
+[2026-06-11T10:07:26] [INFO] Moved 'Remove-DuplicateEntriesFromIanaMappings.ps1' to: '!Code'
+[2026-06-11T10:07:26] [VERBOSE] Matched 'Report_DevicesSyncing_2024_1_23__22_17_52.csv' type: CSV
+[2026-06-11T10:07:26] [INFO] Moved 'Report_DevicesSyncing_2024_1_23__22_17_52.csv' to: '!CSV'
+[2026-06-11T10:07:26] [VERBOSE] Matched 'Resume - Ryan Eaton.docx' type: Documents
+[2026-06-11T10:07:26] [INFO] Moved 'Resume - Ryan Eaton.docx' to: '!Documents'
+[2026-06-11T10:07:26] [VERBOSE] Matched 'Right Click Tools-5.11.2602.1808-134159206935117651.msi' type: Installers
+[2026-06-11T10:07:26] [INFO] Moved 'Right Click Tools-5.11.2602.1808-134159206935117651.msi' to: '!Installers'
+[2026-06-11T10:07:27] [VERBOSE] Stale unmatched file: 'RiskieTHING.stl' (modified 2024-05-02)
+[2026-06-11T10:07:27] [INFO] Moved 'RiskieTHING.stl' to: '_Stale'
+[2026-06-11T10:07:27] [VERBOSE] Matched 'robynGPUs.jpg' type: Images
+[2026-06-11T10:07:27] [INFO] Moved 'robynGPUs.jpg' to: '!Images'
+[2026-06-11T10:07:27] [VERBOSE] Stale unmatched file: 'rufus.ini' (modified 2024-05-29)
+[2026-06-11T10:07:27] [INFO] Moved 'rufus.ini' to: '_Stale'
+[2026-06-11T10:07:27] [VERBOSE] Matched 'Screenshot 2025-05-28 131027.png' type: Images
+[2026-06-11T10:07:27] [INFO] Moved 'Screenshot 2025-05-28 131027.png' to: '!Images'
+[2026-06-11T10:07:27] [VERBOSE] Matched 'SD36 iOS Shared Legacy Device Enrollment URL.txt' type: Documents
+[2026-06-11T10:07:28] [INFO] Moved 'SD36 iOS Shared Legacy Device Enrollment URL.txt' to: '!Documents'
+[2026-06-11T10:07:28] [VERBOSE] Matched 'SD36_Intune_AndroidDevices_Mar19-25.xlsx' type: Documents
+[2026-06-11T10:07:28] [INFO] Moved 'SD36_Intune_AndroidDevices_Mar19-25.xlsx' to: '!Documents'
+[2026-06-11T10:07:28] [VERBOSE] Stale unmatched file: 'SD36-CA-SHA1.cer' (modified 2024-04-03)
+[2026-06-11T10:07:28] [INFO] Moved 'SD36-CA-SHA1.cer' to: '_Stale'
+[2026-06-11T10:07:28] [VERBOSE] Stale unmatched file: 'SD36-CA.cer' (modified 2024-04-03)
+[2026-06-11T10:07:28] [INFO] Moved 'SD36-CA.cer' to: '_Stale'
+[2026-06-11T10:07:28] [VERBOSE] Matched 'SD36GoogleZTE_AllDevices_Aug21-2024.pdf' type: Documents
+[2026-06-11T10:07:28] [INFO] Moved 'SD36GoogleZTE_AllDevices_Aug21-2024.pdf' to: '!Documents'
+[2026-06-11T10:07:29] [VERBOSE] Matched 'SD36GoogleZTE_AllDevices_Aug21-2024.xlsx' type: Documents
+[2026-06-11T10:07:29] [INFO] Moved 'SD36GoogleZTE_AllDevices_Aug21-2024.xlsx' to: '!Documents'
+[2026-06-11T10:07:29] [VERBOSE] Matched 'SD36IntuneAndroid-AllDevices-Aug21-2024.xlsx' type: Documents
+[2026-06-11T10:07:29] [INFO] Moved 'SD36IntuneAndroid-AllDevices-Aug21-2024.xlsx' to: '!Documents'
+[2026-06-11T10:07:29] [VERBOSE] Matched 'SD36MacOSDeviceDisable8021XPrompts.xml' type: Code
+[2026-06-11T10:07:29] [INFO] Moved 'SD36MacOSDeviceDisable8021XPrompts.xml' to: '!Code'
+[2026-06-11T10:07:29] [VERBOSE] Stale unmatched file: 'SectigoRSADomainValidationSecureServerCA.crt' (modified 2024-05-24)
+[2026-06-11T10:07:29] [INFO] Moved 'SectigoRSADomainValidationSecureServerCA.crt' to: '_Stale'
+[2026-06-11T10:07:29] [VERBOSE] Matched 'security_baseline for windows 10 and later2024-04-08T20_08_30.078Z (1).csv' type: CSV
+[2026-06-11T10:07:30] [INFO] Moved 'security_baseline for windows 10 and later2024-04-08T20_08_30.078Z (1).csv' to: '!CSV'
+[2026-06-11T10:07:30] [VERBOSE] Matched 'security_baseline for windows 10 and later2024-04-08T20_08_30.078Z.csv' type: CSV
+[2026-06-11T10:07:30] [INFO] Moved 'security_baseline for windows 10 and later2024-04-08T20_08_30.078Z.csv' to: '!CSV'
+[2026-06-11T10:07:30] [VERBOSE] Matched 'security_baseline for windows 10 and later2024-04-12T16_48_45.568Z.csv' type: CSV
+[2026-06-11T10:07:30] [INFO] Moved 'security_baseline for windows 10 and later2024-04-12T16_48_45.568Z.csv' to: '!CSV'
+[2026-06-11T10:07:30] [VERBOSE] Matched 'Set-ExchAVExclusions.ps1' type: Code
+[2026-06-11T10:07:30] [INFO] Moved 'Set-ExchAVExclusions.ps1' to: '!Code'
+[2026-06-11T10:07:30] [VERBOSE] Matched 'Settings Definitions Export Mar-12 2025.xlsx' type: Documents
+[2026-06-11T10:07:30] [INFO] Moved 'Settings Definitions Export Mar-12 2025.xlsx' to: '!Documents'
+[2026-06-11T10:07:30] [VERBOSE] Matched 'Shared iPad Apps 2024-10-01.xlsx' type: Documents
+[2026-06-11T10:07:31] [INFO] Moved 'Shared iPad Apps 2024-10-01.xlsx' to: '!Documents'
+[2026-06-11T10:07:31] [VERBOSE] Matched 'shopping_list_app_context (1).txt' type: Documents
+[2026-06-11T10:07:31] [INFO] Moved 'shopping_list_app_context (1).txt' to: '!Documents'
+[2026-06-11T10:07:31] [VERBOSE] Matched 'shopping_list_app_context (2).txt' type: Documents
+[2026-06-11T10:07:31] [INFO] Moved 'shopping_list_app_context (2).txt' to: '!Documents'
+[2026-06-11T10:07:31] [VERBOSE] Matched 'shopping_list_app_context.txt' type: Documents
+[2026-06-11T10:07:31] [INFO] Moved 'shopping_list_app_context.txt' to: '!Documents'
+[2026-06-11T10:07:31] [VERBOSE] Matched 'SiteCode-FullName.csv' type: CSV
+[2026-06-11T10:07:31] [INFO] Moved 'SiteCode-FullName.csv' to: '!CSV'
+[2026-06-11T10:07:31] [VERBOSE] Matched 'SiteCode-FullName.json' type: Code
+[2026-06-11T10:07:32] [INFO] Moved 'SiteCode-FullName.json' to: '!Code'
+[2026-06-11T10:07:32] [VERBOSE] Matched 'SiteCode-FullName.xlsx' type: Documents
+[2026-06-11T10:07:32] [INFO] Moved 'SiteCode-FullName.xlsx' to: '!Documents'
+[2026-06-11T10:07:32] [VERBOSE] Stale unmatched file: 'SMSPXE (1).log' (modified 2024-01-05)
+[2026-06-11T10:07:32] [INFO] Moved 'SMSPXE (1).log' to: '_Stale'
+[2026-06-11T10:07:32] [VERBOSE] Stale unmatched file: 'SMSPXE.log' (modified 2024-01-05)
+[2026-06-11T10:07:32] [INFO] Moved 'SMSPXE.log' to: '_Stale'
+[2026-06-11T10:07:32] [VERBOSE] Matched 'Soos-Logging.pptx' type: Documents
+[2026-06-11T10:07:32] [INFO] Moved 'Soos-Logging.pptx' to: '!Documents'
+[2026-06-11T10:07:32] [VERBOSE] Matched 'Soos-Property.pptx' type: Documents
+[2026-06-11T10:07:33] [INFO] Moved 'Soos-Property.pptx' to: '!Documents'
+[2026-06-11T10:07:33] [VERBOSE] Matched 'SSLogo-transparent-Enhanced-SR.png' type: Images
+[2026-06-11T10:07:33] [INFO] Moved 'SSLogo-transparent-Enhanced-SR.png' to: '!Images'
+[2026-06-11T10:07:33] [VERBOSE] Matched 'SSLogo-transparent-Enhanced-SR.tif' type: Images
+[2026-06-11T10:07:33] [INFO] Moved 'SSLogo-transparent-Enhanced-SR.tif' to: '!Images'
+[2026-06-11T10:07:33] [VERBOSE] Matched 'SSLogo-transparent.tif' type: Images
+[2026-06-11T10:07:33] [INFO] Moved 'SSLogo-transparent.tif' to: '!Images'
+[2026-06-11T10:07:33] [VERBOSE] Matched 'SSLogoTP-Enhanced-SR.tif' type: Images
+[2026-06-11T10:07:33] [INFO] Moved 'SSLogoTP-Enhanced-SR.tif' to: '!Images'
+[2026-06-11T10:07:33] [VERBOSE] Matched 'staff.xlsx' type: Documents
+[2026-06-11T10:07:33] [INFO] Moved 'staff.xlsx' to: '!Documents'
+[2026-06-11T10:07:33] [VERBOSE] Stale unmatched file: 'sToken_for_INFO.vpptoken' (modified 2025-02-21)
+[2026-06-11T10:07:34] [INFO] Moved 'sToken_for_INFO.vpptoken' to: '_Stale'
+[2026-06-11T10:07:34] [VERBOSE] Matched 'stuTeach.csv' type: CSV
+[2026-06-11T10:07:34] [INFO] Moved 'stuTeach.csv' to: '!CSV'
+[2026-06-11T10:07:34] [VERBOSE] Stale unmatched file: 'Surrey Schools Issuing CA (1).crl' (modified 2025-06-27)
+[2026-06-11T10:07:34] [INFO] Moved 'Surrey Schools Issuing CA (1).crl' to: '_Stale'
+[2026-06-11T10:07:34] [VERBOSE] Stale unmatched file: 'Surrey Schools Issuing CA (2).crl' (modified 2026-03-19)
+[2026-06-11T10:07:34] [INFO] Moved 'Surrey Schools Issuing CA (2).crl' to: '_Stale'
+[2026-06-11T10:07:34] [VERBOSE] Stale unmatched file: 'Surrey Schools Issuing CA (3).crl' (modified 2026-05-08)
+[2026-06-11T10:07:34] [INFO] Moved 'Surrey Schools Issuing CA (3).crl' to: '_Stale'
+[2026-06-11T10:07:34] [VERBOSE] Stale unmatched file: 'Surrey Schools Issuing CA.crl' (modified 2025-06-27)
+[2026-06-11T10:07:35] [INFO] Moved 'Surrey Schools Issuing CA.crl' to: '_Stale'
+[2026-06-11T10:07:35] [VERBOSE] Stale unmatched file: 'Surrey Schools Issuing CA.crt' (modified 2024-11-01)
+[2026-06-11T10:07:35] [INFO] Moved 'Surrey Schools Issuing CA.crt' to: '_Stale'
+[2026-06-11T10:07:35] [VERBOSE] Stale unmatched file: 'Surrey Schools Root CA (1).crt' (modified 2025-04-02)
+[2026-06-11T10:07:35] [INFO] Moved 'Surrey Schools Root CA (1).crt' to: '_Stale'
+[2026-06-11T10:07:35] [VERBOSE] Stale unmatched file: 'Surrey Schools Root CA (2).crt' (modified 2025-04-02)
+[2026-06-11T10:07:35] [INFO] Moved 'Surrey Schools Root CA (2).crt' to: '_Stale'
+[2026-06-11T10:07:35] [VERBOSE] Stale unmatched file: 'Surrey Schools Root CA.crt' (modified 2024-10-29)
+[2026-06-11T10:07:35] [INFO] Moved 'Surrey Schools Root CA.crt' to: '_Stale'
+[2026-06-11T10:07:35] [VERBOSE] Stale unmatched file: 'TegraExplorer.bin' (modified 2024-05-11)
+[2026-06-11T10:07:36] [INFO] Moved 'TegraExplorer.bin' to: '_Stale'
+[2026-06-11T10:07:36] [VERBOSE] Matched 'Test-HMAEAS.ps1' type: Code
+[2026-06-11T10:07:36] [INFO] Moved 'Test-HMAEAS.ps1' to: '!Code'
+[2026-06-11T10:07:36] [VERBOSE] Matched 'Test-MdiReadiness (1).ps1' type: Code
+[2026-06-11T10:07:36] [INFO] Moved 'Test-MdiReadiness (1).ps1' to: '!Code'
+[2026-06-11T10:07:36] [VERBOSE] Stale unmatched file: 'test.cer' (modified 2024-12-31)
+[2026-06-11T10:07:36] [INFO] Moved 'test.cer' to: '_Stale'
+[2026-06-11T10:07:36] [VERBOSE] Stale unmatched file: 'test.htm' (modified 2025-02-12)
+[2026-06-11T10:07:37] [INFO] Moved 'test.htm' to: '_Stale'
+[2026-06-11T10:07:37] [VERBOSE] Matched 'test.jpg' type: Images
+[2026-06-11T10:07:37] [INFO] Moved 'test.jpg' to: '!Images'
+[2026-06-11T10:07:37] [VERBOSE] Matched 'top-fuel.jpg' type: Images
+[2026-06-11T10:07:37] [INFO] Moved 'top-fuel.jpg' to: '!Images'
+[2026-06-11T10:07:37] [VERBOSE] Matched 'TriSizingToolResults_20231220_1456.xlsx' type: Documents
+[2026-06-11T10:07:37] [INFO] Moved 'TriSizingToolResults_20231220_1456.xlsx' to: '!Documents'
+[2026-06-11T10:07:37] [VERBOSE] Matched 'TSBackground.pdf' type: Documents
+[2026-06-11T10:07:38] [INFO] Moved 'TSBackground.pdf' to: '!Documents'
+[2026-06-11T10:07:38] [VERBOSE] Matched 'tumblr_lok3d8vt1n1qhwpkgo5_500.jpg' type: Images
+[2026-06-11T10:07:38] [INFO] Moved 'tumblr_lok3d8vt1n1qhwpkgo5_500.jpg' to: '!Images'
+[2026-06-11T10:07:38] [VERBOSE] Stale unmatched file: 'U43_3.40_08_01_2024.signed.flash' (modified 2024-08-27)
+[2026-06-11T10:07:38] [INFO] Moved 'U43_3.40_08_01_2024.signed.flash' to: '_Stale'
+[2026-06-11T10:07:38] [VERBOSE] Stale unmatched file: 'Ubuntu.adml' (modified 2025-04-17)
+[2026-06-11T10:07:38] [INFO] Moved 'Ubuntu.adml' to: '_Stale'
+[2026-06-11T10:07:38] [VERBOSE] Stale unmatched file: 'Ubuntu.admx' (modified 2025-04-17)
+[2026-06-11T10:07:38] [INFO] Moved 'Ubuntu.admx' to: '_Stale'
+[2026-06-11T10:07:39] [VERBOSE] Matched 'unlicensedStudentTeachers.xlsx' type: Documents
+[2026-06-11T10:07:39] [INFO] Moved 'unlicensedStudentTeachers.xlsx' to: '!Documents'
+[2026-06-11T10:07:39] [VERBOSE] Stale unmatched file: 'Untitled Diagram.drawio' (modified 2025-04-07)
+[2026-06-11T10:07:39] [INFO] Moved 'Untitled Diagram.drawio' to: '_Stale'
+[2026-06-11T10:07:39] [VERBOSE] Matched 'Untitled.png' type: Images
+[2026-06-11T10:07:39] [INFO] Moved 'Untitled.png' to: '!Images'
+[2026-06-11T10:07:39] [VERBOSE] Matched 'upscaled_ags.png' type: Images
+[2026-06-11T10:07:39] [INFO] Moved 'upscaled_ags.png' to: '!Images'
+[2026-06-11T10:07:39] [VERBOSE] Matched 'upscaled_badchipflavor.png' type: Images
+[2026-06-11T10:07:40] [INFO] Moved 'upscaled_badchipflavor.png' to: '!Images'
+[2026-06-11T10:07:40] [VERBOSE] Stale unmatched file: 'USERTrust RSA Certification Authority.cer' (modified 2025-03-10)
+[2026-06-11T10:07:40] [INFO] Moved 'USERTrust RSA Certification Authority.cer' to: '_Stale'
+[2026-06-11T10:07:40] [VERBOSE] Matched 'Vacation Request-12mths-2025-2026.pdf' type: Documents
+[2026-06-11T10:07:40] [INFO] Moved 'Vacation Request-12mths-2025-2026.pdf' to: '!Documents'
+[2026-06-11T10:07:40] [VERBOSE] Matched 'variableFormattingExample.txt' type: Documents
+[2026-06-11T10:07:40] [INFO] Moved 'variableFormattingExample.txt' to: '!Documents'
+[2026-06-11T10:07:41] [VERBOSE] Matched 'Varonis EDR Exclusions Required .pdf' type: Documents
+[2026-06-11T10:07:41] [INFO] Moved 'Varonis EDR Exclusions Required .pdf' to: '!Documents'
+[2026-06-11T10:07:41] [VERBOSE] Matched 'VM request questions - IR1159651.docx' type: Documents
+[2026-06-11T10:07:41] [INFO] Moved 'VM request questions - IR1159651.docx' to: '!Documents'
+[2026-06-11T10:07:41] [VERBOSE] Matched 'VM request questions.docx' type: Documents
+[2026-06-11T10:07:41] [INFO] Moved 'VM request questions.docx' to: '!Documents'
+[2026-06-11T10:07:41] [VERBOSE] Matched 'vvKey.txt' type: Documents
+[2026-06-11T10:07:41] [INFO] Moved 'vvKey.txt' to: '!Documents'
+[2026-06-11T10:07:41] [VERBOSE] Stale unmatched file: 'watchdong.pdn' (modified 2024-10-01)
+[2026-06-11T10:07:42] [INFO] Moved 'watchdong.pdn' to: '_Stale'
+[2026-06-11T10:07:42] [VERBOSE] Matched 'Wi-Fi-SD36-Secure-10-20-25.xml' type: Code
+[2026-06-11T10:07:42] [INFO] Moved 'Wi-Fi-SD36-Secure-10-20-25.xml' to: '!Code'
+[2026-06-11T10:07:42] [VERBOSE] Matched 'Wi-Fi-SD36-Secure2.xml' type: Code
+[2026-06-11T10:07:42] [INFO] Moved 'Wi-Fi-SD36-Secure2.xml' to: '!Code'
+[2026-06-11T10:07:42] [VERBOSE] Stale unmatched file: 'wimboot' (modified 2024-12-05)
+[2026-06-11T10:07:42] [INFO] Moved 'wimboot' to: '_Stale'
+[2026-06-11T10:07:42] [VERBOSE] Matched 'win11.png' type: Images
+[2026-06-11T10:07:42] [INFO] Moved 'win11.png' to: '!Images'
+[2026-06-11T10:07:43] [VERBOSE] Stale unmatched file: 'windows10.0-kb5044025-x64-ndp48_076f88ac9074f6626dc5fbce564e01bbfd0ffba1.msu' (modified 2024-10-09)
+[2026-06-11T10:07:43] [INFO] Moved 'windows10.0-kb5044025-x64-ndp48_076f88ac9074f6626dc5fbce564e01bbfd0ffba1.msu' to: '_Stale'
+[2026-06-11T10:07:43] [VERBOSE] Stale unmatched file: 'windows10.0-kb5044035-x64-ndp481_c6081dbdbc8365ec4426585520f58038decdfb56.msu' (modified 2024-10-09)
+[2026-06-11T10:07:43] [INFO] Moved 'windows10.0-kb5044035-x64-ndp481_c6081dbdbc8365ec4426585520f58038decdfb56.msu' to: '_Stale'
+[2026-06-11T10:07:43] [VERBOSE] Stale unmatched file: 'windows11.0-kb5045934-x64-ndp481_fa9c3adfb0532eb8f4e521f4fb92a179380184c5.msu' (modified 2024-12-18)
+[2026-06-11T10:07:44] [INFO] Moved 'windows11.0-kb5045934-x64-ndp481_fa9c3adfb0532eb8f4e521f4fb92a179380184c5.msu' to: '_Stale'
+[2026-06-11T10:07:44] [VERBOSE] Matched 'WindowsDefenderATPLocalOnboardingScript.cmd' type: Code
+[2026-06-11T10:07:45] [INFO] Moved 'WindowsDefenderATPLocalOnboardingScript.cmd' to: '!Code'
+[2026-06-11T10:07:45] [VERBOSE] Stale unmatched file: 'WmiPrvSE.dmp' (modified 2025-05-30)
+[2026-06-11T10:07:45] [INFO] Moved 'WmiPrvSE.dmp' to: '_Stale'
+[2026-06-11T10:07:45] [VERBOSE] Stale unmatched file: 'WMITrace.etl' (modified 2025-05-30)
+[2026-06-11T10:07:45] [INFO] Moved 'WMITrace.etl' to: '_Stale'
+[2026-06-11T10:07:45] [VERBOSE] Matched 'wol.pdf' type: Documents
+[2026-06-11T10:07:45] [INFO] Moved 'wol.pdf' to: '!Documents'
+[2026-06-11T10:07:45] [VERBOSE] Matched 'wol.ps1' type: Code
+[2026-06-11T10:07:45] [INFO] Moved 'wol.ps1' to: '!Code'
+[2026-06-11T10:07:46] [VERBOSE] Matched 'zero_touch_sample_device_config.csv' type: CSV
+[2026-06-11T10:07:46] [INFO] Moved 'zero_touch_sample_device_config.csv' to: '!CSV'
+[2026-06-11T10:07:46] [INFO] Processing 48 subfolders in current user's Downloads folder...
+[2026-06-11T10:07:46] [VERBOSE] Skipped file category or large folder '_Stale'
+[2026-06-11T10:07:46] [VERBOSE] Skipped file category or large folder '!Archives'
+[2026-06-11T10:07:46] [VERBOSE] Skipped file category or large folder '!Audio'
+[2026-06-11T10:07:46] [VERBOSE] Skipped file category or large folder '!Code'
+[2026-06-11T10:07:46] [VERBOSE] Skipped file category or large folder '!CSV'
+[2026-06-11T10:07:46] [VERBOSE] Skipped file category or large folder '!Documents'
+[2026-06-11T10:07:47] [VERBOSE] Skipped file category or large folder '!Images'
+[2026-06-11T10:07:47] [VERBOSE] Skipped file category or large folder '!Installers'
+[2026-06-11T10:07:47] [VERBOSE] Folder size (bytes): 5963375
+[2026-06-11T10:07:47] [INFO] Moved stale folder '2024-microsoft-365-content-VisioTemplates' to: '_Stale'
+[2026-06-11T10:07:47] [VERBOSE] Folder size (bytes): 0
+[2026-06-11T10:07:47] [INFO] Moved stale folder '7020w10drivers' to: '_Stale'
+[2026-06-11T10:07:47] [VERBOSE] Folder size (bytes): 37170292
+[2026-06-11T10:07:47] [INFO] Moved stale folder 'admx' to: '_Stale'
+[2026-06-11T10:07:48] [VERBOSE] Folder size (bytes): 2959024
+[2026-06-11T10:07:48] [INFO] Moved stale folder 'Black Ops' to: '_Stale'
+[2026-06-11T10:07:48] [VERBOSE] Folder size (bytes): 26169
+[2026-06-11T10:07:48] [INFO] Moved stale folder 'certs' to: '_Stale'
+[2026-06-11T10:07:48] [VERBOSE] Folder size (bytes): 1475707
+[2026-06-11T10:07:48] [INFO] Moved stale folder 'cru-1.5.2' to: '_Stale'
+[2026-06-11T10:07:48] [VERBOSE] Folder size (bytes): 1475707
+[2026-06-11T10:07:49] [INFO] Moved stale folder 'cru-1.5.2(2)' to: '_Stale'
+[2026-06-11T10:07:49] [VERBOSE] Folder size (bytes): 51456
+[2026-06-11T10:07:49] [INFO] Moved stale folder 'DellFanCmd-2.1.1' to: '_Stale'
+[2026-06-11T10:07:49] [VERBOSE] Folder size (bytes): 12876313
+[2026-06-11T10:07:49] [INFO] Moved stale folder 'DiskSpd' to: '_Stale'
+[2026-06-11T10:07:49] [VERBOSE] Folder size (bytes): 17236
+[2026-06-11T10:07:49] [INFO] Moved stale folder 'DownloadDefenderDefinitions' to: '_Stale'
+[2026-06-11T10:07:49] [VERBOSE] Folder size (bytes): 124869328
+[2026-06-11T10:07:50] [VERBOSE] Flagged large folder 'EDGEADMX' (119.1MB)
+[2026-06-11T10:07:50] [VERBOSE] Folder size (bytes): 78477192
+[2026-06-11T10:07:50] [INFO] Moved stale folder 'EPOMAKER_setup_2.1.71' to: '_Stale'
+[2026-06-11T10:07:50] [VERBOSE] Folder size (bytes): 53893495
+[2026-06-11T10:07:50] [INFO] Moved stale folder 'Fallout4Downgrader' to: '_Stale'
+[2026-06-11T10:07:50] [VERBOSE] Folder size (bytes): 46622703
+[2026-06-11T10:07:50] [INFO] Moved stale folder 'FiraCode' to: '_Stale'
+[2026-06-11T10:07:50] [VERBOSE] Folder size (bytes): 1043930
+[2026-06-11T10:07:51] [INFO] Moved stale folder 'fit-boy-3.1.3' to: '_Stale'
+[2026-06-11T10:07:51] [VERBOSE] Folder size (bytes): 21908
+[2026-06-11T10:07:51] [INFO] Moved stale folder 'GatewayWindowsDefenderATPOnboardingPackage' to: '_Stale'
+[2026-06-11T10:07:51] [VERBOSE] Folder size (bytes): 48672225
+[2026-06-11T10:07:51] [INFO] Moved stale folder 'grub' to: '_Stale'
+[2026-06-11T10:07:51] [VERBOSE] Folder size (bytes): 47320269
+[2026-06-11T10:07:51] [INFO] Moved stale folder 'heimdall-suite-1.4.0-win32' to: '_Stale'
+[2026-06-11T10:07:51] [VERBOSE] Folder size (bytes): 30134363
+[2026-06-11T10:07:52] [INFO] Moved stale folder 'httpd-2.4.58-240131-win64-VS17' to: '_Stale'
+[2026-06-11T10:07:52] [VERBOSE] Folder size (bytes): 204182
+[2026-06-11T10:07:52] [INFO] Moved stale folder 'Invoke-DGASoftwareUpdateMaintenance' to: '_Stale'
+[2026-06-11T10:07:52] [VERBOSE] Folder size (bytes): 4008120
+[2026-06-11T10:07:52] [INFO] Moved stale folder 'iperf-3.1.3-win64' to: '_Stale'
+[2026-06-11T10:07:52] [VERBOSE] Folder size (bytes): 67595958
+[2026-06-11T10:07:52] [INFO] Moved stale folder 'kdikdizd' to: '_Stale'
+[2026-06-11T10:07:52] [VERBOSE] Folder size (bytes): 13338598
+[2026-06-11T10:07:53] [INFO] Moved stale folder 'Kobra 2_firmware_V3.0.6_EN' to: '_Stale'
+[2026-06-11T10:07:53] [VERBOSE] Folder size (bytes): 0
+[2026-06-11T10:07:53] [INFO] Moved stale folder 'MicrosoftWindows.Client.CBS_cw5n1h2txyewy!InputApp' to: '_Stale'
+[2026-06-11T10:07:53] [VERBOSE] Folder size (bytes): 951848
+[2026-06-11T10:07:53] [INFO] Moved stale folder 'monofonto' to: '_Stale'
+[2026-06-11T10:07:53] [VERBOSE] Folder size (bytes): 3168023
+[2026-06-11T10:07:53] [INFO] Moved stale folder 'Odin3 v3.14.1_3B_PatcheD' to: '_Stale'
+[2026-06-11T10:07:53] [VERBOSE] Folder size (bytes): 3168023
+[2026-06-11T10:07:54] [INFO] Moved stale folder 'Odin3 v3.14.1_3B_PatcheD(1)' to: '_Stale'
+[2026-06-11T10:07:54] [VERBOSE] Folder size (bytes): 10913264
+[2026-06-11T10:07:54] [INFO] Moved stale folder 'opendyslexic-0.91.12' to: '_Stale'
+[2026-06-11T10:07:54] [VERBOSE] Folder size (bytes): 4229851
+[2026-06-11T10:07:54] [INFO] Moved stale folder 'OTF Fidget Knife - only 3 Parts - 6602686' to: '_Stale'
+[2026-06-11T10:07:54] [VERBOSE] Folder size (bytes): 6311176
+[2026-06-11T10:07:54] [INFO] Moved stale folder 'Paessler SNMP Tester' to: '_Stale'
+[2026-06-11T10:07:54] [VERBOSE] Folder size (bytes): 9394706
+[2026-06-11T10:07:55] [INFO] Moved stale folder 'ProcessExplorer' to: '_Stale'
+[2026-06-11T10:07:55] [VERBOSE] Folder size (bytes): 13067
+[2026-06-11T10:07:55] [INFO] Moved stale folder 'Release' to: '_Stale'
+[2026-06-11T10:07:55] [VERBOSE] Folder size (bytes): 54856229
+[2026-06-11T10:07:55] [INFO] Moved stale folder 'RonsDataEdit' to: '_Stale'
+[2026-06-11T10:07:55] [VERBOSE] Folder size (bytes): 1545705
+[2026-06-11T10:07:55] [INFO] Moved stale folder 'Rufus' to: '_Stale'
+[2026-06-11T10:07:56] [VERBOSE] Folder size (bytes): 54296980
+[2026-06-11T10:07:57] [INFO] Moved stale folder 'Security Compliance Toolkit' to: '_Stale'
+[2026-06-11T10:07:57] [VERBOSE] Folder size (bytes): 3811049
+[2026-06-11T10:07:57] [INFO] Moved stale folder 'SetupRST_extracted' to: '_Stale'
+[2026-06-11T10:07:57] [VERBOSE] Folder size (bytes): 4073093
+[2026-06-11T10:07:57] [INFO] Moved stale folder 'trustedTPM' to: '_Stale'
+[2026-06-11T10:07:57] [VERBOSE] Folder size (bytes): 444733213
+[2026-06-11T10:07:57] [VERBOSE] Flagged large folder 'U_STIGViewer-win32_x64-3-4-0' (424.1MB)
+[2026-06-11T10:07:57] [VERBOSE] Folder size (bytes): 18973285
+[2026-06-11T10:07:58] [INFO] Moved stale folder 'ventoy-1.1.05' to: '_Stale'
+[2026-06-11T10:07:58] [VERBOSE] Folder size (bytes): 63337339
+[2026-06-11T10:07:58] [INFO] Moved stale folder 'Windows Vista 2025 Edition' to: '_Stale'
+[2026-06-11T10:07:58] [INFO] Done.
 
 Summary:
-Moved  : 8
-Flagged: 0
+Moved  : 211
+Flagged: 2
 Skipped: 0
 Errors : 0
 
-Sort-DownloadsFolder complete.
-[2026-06-09T15:28:58] [INFO] Sort-DownloadsFolder started.
+[2026-06-11T10:07:58] [INFO] Sort-DownloadsFolder complete.
+[2026-06-11T15:22:16] [INFO] Sort-DownloadsFolder started.
 
-Downloads path: C:\Users\eaton_ryan\Downloads
-Size threshold: 500MB
-Large prefix  : !LRG_
+Downloads folder : C:\Users\eaton_ryan\Downloads
+Large file prefix: !LRG_
+Stale folder name: _Stale
+Log directory    : D:\Sort-DownloadsFolder
+Custom ext. map  : No
+Overrides applied: No
+Large file size  : >100MB
+Min. file age    : 30 minutes
+Files stale after: 7 days
+Cleanup reminder : 15 loose files
 
-[2026-06-09T15:28:58] [INFO] Processing 3 files in current user's Downloads folder...
-[2026-06-09T15:28:58] [VERBOSE] No type match: '___Restrictions (CLONE ONLY).mobileconfig'
-[2026-06-09T15:28:58] [VERBOSE] No type match: 'Intune - macOS Devices_Token_2026-06-03T18-03-17Z_smime.p7m'
-[2026-06-09T15:28:58] [VERBOSE] No type match: 'SecureMessageAtt.html'
-[2026-06-09T15:28:58] [INFO] Done.
+[2026-06-11T15:22:16] [INFO] Done.
 
 Summary:
 Moved  : 0
@@ -53,4 +754,92 @@ Flagged: 0
 Skipped: 0
 Errors : 0
 
-[2026-06-09T15:28:59] [INFO] Sort-DownloadsFolder complete.
+[2026-06-11T15:22:16] [INFO] Sort-DownloadsFolder complete.
+[2026-06-11T16:18:53] [INFO] Sort-DownloadsFolder started.
+
+Downloads folder : C:\Users\eaton_ryan\Downloads
+Large file prefix: !LRG_
+Stale folder name: _Stale
+Log directory    : D:\Sort-DownloadsFolder
+Custom ext. map  : No
+Overrides applied: No
+Large file size  : >100MB
+Min. file age    : 30 minutes
+Files stale after: 7 days
+Cleanup reminder : 15 loose files
+
+[2026-06-11T16:18:53] [INFO] Done.
+
+Summary:
+Moved  : 0
+Flagged: 0
+Skipped: 0
+Errors : 0
+
+[2026-06-11T16:18:53] [INFO] Sort-DownloadsFolder complete.
+[2026-06-11T16:20:07] [INFO] Sort-DownloadsFolder started.
+
+Downloads folder : C:\Users\eaton_ryan\Downloads
+Large file prefix: !LRG_
+Stale folder name: _Stale
+Log directory    : D:\Sort-DownloadsFolder
+Custom ext. map  : No
+Overrides applied: No
+Large file size  : >100MB
+Min. file age    : 30 minutes
+Files stale after: 7 days
+Cleanup reminder : 15 loose files
+
+[2026-06-11T16:20:07] [INFO] Done.
+
+Summary:
+Moved  : 0
+Flagged: 0
+Skipped: 0
+Errors : 0
+
+[2026-06-11T16:20:07] [INFO] Sort-DownloadsFolder complete.
+[2026-06-11T16:27:28] [INFO] Sort-DownloadsFolder started.
+
+Downloads folder : C:\Users\eaton_ryan\Downloads
+Large file prefix: !LRG_
+Stale folder name: _Stale
+Log directory    : D:\Sort-DownloadsFolder
+Custom ext. map  : No
+Overrides applied: No
+Large file size  : >100MB
+Min. file age    : 30 minutes
+Files stale after: 7 days
+Cleanup reminder : 15 loose files
+
+[2026-06-11T16:27:29] [INFO] Processing 7 files in current user's Downloads folder...
+[2026-06-11T16:27:29] [VERBOSE] Matched '849 Mobile Devices in Andrew R - All AppleTV.csv' type: Data
+[2026-06-11T16:27:29] [VERBOSE] Created file category subfolder: '!Data'
+[2026-06-11T16:27:29] [INFO] Moved '849 Mobile Devices in Andrew R - All AppleTV.csv' to: '!Data'
+[2026-06-11T16:27:29] [VERBOSE] Matched 'Client apps_2026-05-25T22_29_00.721Z.csv' type: Data
+[2026-06-11T16:27:29] [INFO] Moved 'Client apps_2026-05-25T22_29_00.721Z.csv' to: '!Data'
+[2026-06-11T16:27:29] [VERBOSE] Matched 'Remedy Round 1 iPads.xlsx' type: Data
+[2026-06-11T16:27:29] [INFO] Moved 'Remedy Round 1 iPads.xlsx' to: '!Data'
+[2026-06-11T16:27:29] [VERBOSE] Matched 'Round 2 Remedy iPads.xlsx' type: Data
+[2026-06-11T16:27:30] [INFO] Moved 'Round 2 Remedy iPads.xlsx' to: '!Data'
+[2026-06-11T16:27:30] [VERBOSE] Matched 'Ryan Eaton-letter.pdf' type: Documents
+[2026-06-11T16:27:30] [VERBOSE] Created file category subfolder: '!Documents'
+[2026-06-11T16:27:30] [INFO] Moved 'Ryan Eaton-letter.pdf' to: '!Documents'
+[2026-06-11T16:27:30] [VERBOSE] No type match: 'SecureMessageAtt.html'
+[2026-06-11T16:27:30] [VERBOSE] Matched 'TWEE-iPads-DONE 1.xlsx' type: Data
+[2026-06-11T16:27:30] [INFO] Moved 'TWEE-iPads-DONE 1.xlsx' to: '!Data'
+[2026-06-11T16:27:30] [INFO] Processing 5 subfolders in current user's Downloads folder...
+[2026-06-11T16:27:31] [VERBOSE] Skipped file category or large folder '_Stale'
+[2026-06-11T16:27:31] [VERBOSE] Skipped file category or large folder '!Data'
+[2026-06-11T16:27:31] [VERBOSE] Skipped file category or large folder '!Documents'
+[2026-06-11T16:27:31] [VERBOSE] Skipped file category or large folder '!Installers'
+[2026-06-11T16:27:31] [VERBOSE] Folder not stale: '831020-001_Student_ILT'
+[2026-06-11T16:27:31] [INFO] Done.
+
+Summary:
+Moved  : 6
+Flagged: 0
+Skipped: 0
+Errors : 0
+
+[2026-06-11T16:27:31] [INFO] Sort-DownloadsFolder complete.
