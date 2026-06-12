@@ -245,6 +245,7 @@ if (-not $ExtensionMapJson)
             '.doc'
             '.docx'
             '.epub'
+            '.html'
             '.md'
             '.odp'
             '.odt'
@@ -546,9 +547,10 @@ $fileStats = @{
     Errors  = 0
 }
 
-if (-not ($Skip -contains 'Files'))
+if (-not ($Skip -contains 'Files') -and
+    ($rootFiles.Count -gt 0))
 {
-    Write-Log "Processing $($rootFiles.Count) files in specified Downloads folder..."
+    Write-Log "Processing $($rootFiles.Count) file(s) in specified Downloads folder..."
 
     foreach ($file in $rootFiles)
     {
@@ -641,13 +643,29 @@ if (-not ($Skip -contains 'Files'))
             $fileStats.Errors++
         }
     }
+
+    Write-Log "Done."
+}
+elseif ($Skip -contains 'Files')
+{ Write-Log "-Skip specified with 'Files', file processing skipped." }
+elseif ($rootFiles.Count -eq 0)
+{ Write-Log "No files to process in the root of '$DownloadsFolder'." }
+
+$rootDirs = Get-ChildItem -LiteralPath $DownloadsPath -Directory
+
+$dirCount = $rootDirs.Count - ($rootDirs.Where({ $_.Name.StartsWith('!') -or $_.Name -eq $StaleFolderName })).Count
+
+if ($rootFiles.Count -eq 0 -and
+    $dirCount -eq 0)
+{
+    Write-Log "No files or folders found to process in the root of '$DownloadsFolder', exiting."
+    return
 }
 
-if (-not ($Skip -contains 'Folders'))
+if (-not ($Skip -contains 'Folders') -and
+    ($dirCount -gt 0))
 {
-    $rootDirs = Get-ChildItem -LiteralPath $DownloadsPath -Directory
-
-    Write-Log "Processing $($rootDirs.Count) subfolders in specified Downloads folder..."
+    Write-Log "Processing $dirCount subfolder(s) in specified Downloads folder..."
 
     foreach ($dir in $rootDirs)
     {
@@ -708,6 +726,10 @@ if (-not ($Skip -contains 'Folders'))
         }
     }
 }
+elseif ($Skip -contains 'Folders')
+{ Write-Log "-Skip specified with 'Folders', folder processing skipped." }
+elseif ($dirCount -eq 0)
+{ Write-Log "No folders to process in the root of '$DownloadsFolder'." }
 
 if ($CleanReminderThreshold -gt 0 -and
     ($fileStats.Skipped -ge $CleanReminderThreshold))
