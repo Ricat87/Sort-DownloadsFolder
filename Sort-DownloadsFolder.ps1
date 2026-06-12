@@ -68,18 +68,33 @@
 
     Register as a per-user scheduled task running every 30 minutes (no elevation required):
 
-        $script   = 'C:\Scripts\Sort-DownloadsFolder.ps1'
-        $action   = New-ScheduledTaskAction -Execute 'pwsh.exe' `
-                        -Argument "-NonInteractive -File `"$script`""
-        $trigger  = New-ScheduledTaskTrigger -Once -At (Get-Date) `
-                        -RepetitionInterval (New-TimeSpan -Minutes 30)
-        $settings = New-ScheduledTaskSettingsSet `
-                        -ExecutionTimeLimit (New-TimeSpan -Minutes 5) `
-                        -StartWhenAvailable `
-                        -RunOnlyIfNetworkAvailable:$false
-        Register-ScheduledTask -TaskName 'Sort-DownloadsFolder' `
-            -Action $action -Trigger $trigger -Settings $settings `
-            -RunLevel Limited -Force
+        $script = 'C:\Scripts\Sort-DownloadsFolder.ps1'
+
+        $action = New-ScheduledTaskAction -Execute 'pwsh.exe' -Argument "-NonInteractive -File `"$script`""
+
+        $triggerParams = @{
+            Once               = $true
+            At                 = Get-Date
+            RepetitionInterval = New-TimeSpan -Minutes 30
+        }
+        $trigger = New-ScheduledTaskTrigger @triggerParams
+
+        $settingsParams = @{
+            ExecutionTimeLimit          = New-TimeSpan -Minutes 5
+            StartWhenAvailable          = $true
+            RunOnlyIfNetworkAvailable   = $false
+        }
+        $settings = New-ScheduledTaskSettingsSet @settingsParams
+
+        $taskParams = @{
+            TaskName  = 'Sort-DownloadsFolder'
+            Action    = $action
+            Trigger   = $trigger
+            Settings  = $settings
+            RunLevel  = 'Limited'
+            Force     = $true
+        }
+        Register-ScheduledTask @taskParams
 #>
 
 #Requires -Version 7.4
