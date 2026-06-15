@@ -13,12 +13,12 @@
     Files:
       - Skipped if locked (in-progress download) or created within the last MinAgeMinutes.
       - Renamed with LargeFlagPrefix if at or above LargeFlagSizeMB (floats to top when sorted by name).
-      - Moved into a type-matched subfolder (prefixed with '!' to sort above unmanaged folders).
+      - Moved into a type-matched subfolder (prefixed with '!!' by default to sort above unmanaged folders).
       - Moved to StaleFolderName if unmatched and older than StaleDaysThreshold days,
         unless large (large unmatched files are flagged and left in the root).
 
     Subfolders:
-      - Skipped if the name starts with '!' or matches StaleFolderName.
+      - Skipped if the name starts with CategoryFolderPrefix or matches StaleFolderName.
       - Renamed with LargeFlagPrefix if at or above LargeFlagSizeMB.
       - Moved to StaleFolderName if older than StaleDaysThreshold days and not large.
 
@@ -30,17 +30,22 @@
 .PARAMETER LargeFlagPrefix
     Prefix prepended to large files and folders. Default: '!LRG_'.
 
+.PARAMETER CategoryFolderPrefix
+    Prefix for script-managed category subfolders. Default: '!!'.
+    Folders with this prefix sort above user-floated '!' folders and are skipped by the folder loop.
+
 .PARAMETER StaleFolderName
-    Destination folder for stale unmatched files and folders. Default: '_Stale'.
+    Name appended to CategoryFolderPrefix for the stale items folder. Default: 'zStale'.
+    The 'z' causes it to sort below other category folders.
 
 .PARAMETER LogDirectory
     Directory for the rolling log file. Defaults to the script directory.
 
-.PARAMETER NoLog
+.PARAMETER NoLogFile
     Disables all file logging for the run.
 
 .PARAMETER Quiet
-    Suppresses all console output. Log file is still written unless -NoLog is also set.
+    Suppresses all console output. Log file is still written unless -NoLogFile is also set.
 
 .PARAMETER ExtensionMapJson
     Path to a JSON file fully replacing the built-in extension map.
@@ -52,20 +57,28 @@
     To customize without an external file, edit $scriptExtensionMapOverride in-script.
 
 .PARAMETER LargeFlagSizeMB
-    Size threshold in MB for large-file and large-folder flagging. Default: 100.
+    Size threshold in MB for large-file and large-folder flagging. Default: 100. Set to 0 to disable.
 
 .PARAMETER MinAgeMinutes
-    Files created within this many minutes are left in place regardless of other rules. Default: 30.
+    Files created within this many minutes are left in place regardless of other rules. Default: 30. Set to 0 to disable.
 
 .PARAMETER StaleDaysThreshold
-    Files and folders last modified more than this many days ago are considered stale. Default: 7.
+    Files and folders last modified more than this many days ago are considered stale. Default: 7. Set to 0 to disable.
 
 .PARAMETER CleanReminderThreshold
-    Creates a visible reminder file in the root when skipped file count reaches this value. Default: 15.
+    Creates a visible reminder file in the root when skipped file count reaches this value. Default: 15. Set to 0 to disable.
 
 .PARAMETER Skip
     Skips processing of 'Files', 'Folders', or both. Accepts multiple values.
     Example: -Skip Files,Folders
+
+.PARAMETER RestoreDownloadsRoot
+    Moves all contents of script-managed category folders back into the Downloads root and
+    removes the now-empty category folders. Large-flagged prefixes are not removed from filenames.
+
+.PARAMETER NoSizeLabels
+    Skips the size label pass at the end of each run. Category folder names will not be updated
+    with their current size.
 
 .NOTES
     Requires : PowerShell 7.4+
@@ -104,27 +117,29 @@
 
 #Requires -Version 7.4
 
-[CmdletBinding()]
+[CmdletBinding(SupportsShouldProcess)]
 param(
-    [ValidateNotNullOrEmpty()]
+    [ValidateNotNullOrWhiteSpace()]
     [string]$DownloadsPath      = (Join-Path ([System.Environment]::GetFolderPath('UserProfile')) 'Downloads'),
 
-    [ValidateNotNullOrEmpty()]
+    [ValidateNotNullOrWhiteSpace()]
     [string]$LargeFlagPrefix    = '!LRG_',
 
-    [ValidatePattern(
-        '^[^\\/:*?"<>|!][^\\/:*?"<>|]*$'
-    )]
-    [ValidateNotNullOrEmpty()]
-    [string]$StaleFolderName    = '_Stale',
+    [ValidatePattern('^[^\\/:*?"<>|]+$')]
+    [ValidateNotNullOrWhiteSpace()]
+    [string]$CategoryFolderPrefix = '!!',
 
-    [ValidateNotNullOrEmpty()]
+    [ValidatePattern('^[^\\/:*?"<>|!][^\\/:*?"<>|]*$')]
+    [ValidateNotNullOrWhiteSpace()]
+    [string]$StaleFolderName    = 'zStale',
+
+    [ValidateNotNullOrWhiteSpace()]
     [string]$LogDirectory       = $PSScriptRoot,
 
-    [ValidateNotNullOrEmpty()]
+    [ValidateNotNullOrWhiteSpace()]
     [string]$ExtensionMapJson,          # Use to fully replace the default map
     
-    [ValidateNotNullOrEmpty()]
+    [ValidateNotNullOrWhiteSpace()]
     [string]$ExtensionMapOverrideJson,  # Use to add to or modify the default map
 
     [ValidateSet('Files','Folders')]
@@ -142,7 +157,9 @@ param(
     [ValidateRange(0,1000000)]
     [int]$CleanReminderThreshold = 15,
 
-    [switch]$NoLog,
+    [switch]$RestoreDownloadsRoot,
+    [switch]$NoSizeLabels,
+    [switch]$NoLogFile,
     [switch]$Quiet
 )
 
@@ -157,7 +174,7 @@ if ($scriptExtMapOverrideEnabled -and
 {
     $scriptExtensionMapOverride = @{
         CSV = @(
-            ".csv"                      # Puts .csv in !CSV instead of !Data
+            ".csv"                      # Puts .csv in !!CSV instead of !!Data
         )
     }
 }
@@ -398,7 +415,7 @@ function Write-Log
         }
     }
 
-    if ($script:NoLog)
+    if ($script:NoLogFile)
     { return }
 
     if ($Level -eq 'VERBOSE' -and
@@ -471,11 +488,66 @@ function Test-FileLocked
     { return $true }
 }
 
+function Restore-DownloadsRoot
+{
+    $validPrefixes = @(
+        $ExtensionMap.Keys.ForEach({ "${CategoryFolderPrefix}$_" })
+        "${CategoryFolderPrefix}${StaleFolderName}"
+    )
+
+    $categoryDirs = (
+        Get-ChildItem -LiteralPath $DownloadsPath -Directory |
+        Where-Object {
+            $dir = $_
+            $validPrefixes.Where({ $dir.Name.StartsWith($_) })
+        }
+    )
+
+    if (-not $categoryDirs)
+    {
+        Write-Log 'Restore-DownloadsRoot: No Sort-DownloadsFolder category folders found to restore.' 'VERBOSE'
+        return
+    }
+
+    foreach ($dir in $categoryDirs)
+    {
+        $items = Get-ChildItem -LiteralPath $dir.FullName
+
+        foreach ($item in $items)
+        {
+            $destPath = Resolve-DestinationPath -Directory $DownloadsPath -FileName $item.Name
+
+            Move-Item -LiteralPath $item.FullName -Destination $destPath -EA 'Stop'
+
+            Write-Log "Restored '$($item.Name)' from '$($dir.Name)' to Downloads root" 'VERBOSE'
+        }
+
+        try
+        {
+            if (-not (Get-ChildItem -LiteralPath $dir.FullName))
+            {
+                Remove-Item -LiteralPath $dir.FullName -EA 'Stop'
+                
+                Write-Log "Removed empty category folder '$($dir.Name)'"
+            }
+            else
+            { 
+                Write-Log (@(
+                    "Restore could not be fully completed."
+                    "Category folder '$($dir.Name)' still has contents, left in place."
+                ) -join "`n") 'WARN'
+            }
+        }
+        catch
+        { Write-Log "Failed to remove empty category folder '$($dir.Name)'." 'WARN' }
+    }
+}
+
 #endregion Functions
 
 #region Setup
 
-if (-not $NoLog)
+if (-not $NoLogFile)
 {
     if (-not (Test-Path -LiteralPath $LogDirectory))
     {
@@ -499,6 +571,7 @@ if (-not $NoLog)
         "Script version   : $($script:Version)"
         "Downloads folder : $($DownloadsPath)"
         "Large file prefix: $($LargeFlagPrefix)"
+        "Sort dir. prefix : $($CategoryFolderPrefix)"
         "Stale folder name: $($StaleFolderName)"
         "Log directory    : $($LogDirectory)"
         "Custom ext. map  : $($ExtensionMapJson ? "Yes" : "No")"
@@ -514,6 +587,21 @@ if (-not (Test-Path -LiteralPath $DownloadsPath))
 {
     Write-Log "Downloads path not found: '$($DownloadsPath)'" 'ERROR'
     throw "Downloads path not found: '$($DownloadsPath)'"
+}
+
+if ($RestoreDownloadsRoot)
+{
+    Write-Log (@(
+        "-RestoreDownloadsRoot specified, emptying all '$CategoryFolderPrefix' folders back into Downloads root."
+        "Please note, large-flagged files/folders will not have their name prefix removed."
+    ) -join "`n")
+
+    Restore-DownloadsRoot
+
+    Write-Log "Done."
+    Write-Log "`nSort-DownloadsFolder complete."
+
+    return
 }
 
 if (($ExtensionMapOverrideJson -and
@@ -557,6 +645,15 @@ if (($ExtensionMapOverrideJson -and
 #endregion Setup
 
 #region Main
+
+$categoryDirCache = @{}
+
+Get-ChildItem -LiteralPath $DownloadsPath -Directory |
+Where-Object { $_.Name.StartsWith($CategoryFolderPrefix) } |
+ForEach-Object {
+    $cleanName = $_.Name -replace '\s+\[[\d.]+ [KMGT]?B\]$'
+    $categoryDirCache[$cleanName] = $_.FullName
+}
 
 if ($LargeFlagSizeMB -gt 0)
 { $flagBytes = $LargeFlagSizeMB * 1MB }
@@ -606,7 +703,9 @@ if (-not ($Skip -contains 'Files') -and
                 $resolvedFlagName = [System.IO.Path]::GetFileName($resolvedFlagPath)
 
                 Rename-Item -LiteralPath $currentPath -NewName $resolvedFlagName -EA 'Stop'
+
                 Write-Log "Flagged large file '$currentName' ($([math]::Round($file.Length / 1MB, 1))MB)" 'VERBOSE'
+
                 $fileStats.Flagged++
 
                 $currentName = $resolvedFlagName
@@ -620,9 +719,9 @@ if (-not ($Skip -contains 'Files') -and
             {
                 if ($ExtensionMap[$folder] -contains $fileExtension)
                 {
-                    $targetFolder = "!$folder"  # Note the ! to sort to top
+                    $targetFolder = "${CategoryFolderPrefix}${folder}"
                     Write-Log "Matched '$($file.Name)' type: $folder" 'VERBOSE'
-                    break
+                    break                       # First match of extension wins
                 }
             }
 
@@ -631,33 +730,43 @@ if (-not ($Skip -contains 'Files') -and
                 if ($LargeFlagSizeMB -gt 0 -and
                     ($file.Length -ge $flagBytes))
                 {
+                    $fileStats.Skipped++
                     continue                            # Leave stale but large files in root
                 }
                 elseif ($StaleDaysThreshold -gt 0 -and
                         ($file.LastWriteTime -lt (Get-Date).AddDays(-$StaleDaysThreshold)))
                 {
-                    $targetFolder = $StaleFolderName    # Default name "_Stale" sorts below other folders starting with a !
+                    $targetFolder = "${CategoryFolderPrefix}${StaleFolderName}"    # Default name has a z after $CategoryFolderPrefix for sorting
+                    
                     Write-Log "Stale unmatched file: '$($file.Name)' (modified $($file.LastWriteTime.ToString('yyyy-MM-dd')))" 'VERBOSE'
                 }
                 else
                 {
                     Write-Log "No type match: '$($file.Name)'" 'VERBOSE'
+                    $fileStats.Skipped++
                     continue
                 }
             }
 
-            $targetDir = Join-Path $DownloadsPath $targetFolder
-
-            if (-not (Test-Path -LiteralPath $targetDir))
+            if (-not $categoryDirCache.ContainsKey($targetFolder))
             {
-                New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
+                $newDir = Join-Path $DownloadsPath $targetFolder
+
+                New-Item -ItemType Directory -Path $newDir -Force | Out-Null
+
                 Write-Log "Created file category subfolder: '$targetFolder'" 'VERBOSE'
+
+                $categoryDirCache[$targetFolder] = $newDir
             }
+
+            $targetDir = $categoryDirCache[$targetFolder]
 
             $destPath = Resolve-DestinationPath -Directory $targetDir -FileName $currentName
 
             Move-Item -LiteralPath $currentPath -Destination $destPath -EA 'Stop'
+
             Write-Log "Moved '$currentName' to: '$targetFolder'"
+
             $fileStats.Moved++
         }
         catch
@@ -676,7 +785,7 @@ elseif ($rootFiles.Count -eq 0)
 
 $rootDirs = Get-ChildItem -LiteralPath $DownloadsPath -Directory
 
-$dirCount = $rootDirs.Count - ($rootDirs.Where({ $_.Name.StartsWith('!') -or $_.Name -eq $StaleFolderName })).Count
+$dirCount = $rootDirs.Count - ($rootDirs.Where({ $_.Name.StartsWith($CategoryFolderPrefix) })).Count
 
 if ($rootFiles.Count -eq 0 -and
     $dirCount -eq 0)
@@ -698,10 +807,16 @@ if (-not ($Skip -contains 'Folders') -and
     {
         try
         {
-            if ($dir.Name.StartsWith('!') -or
-                $dir.Name -eq $StaleFolderName)
+            if ($dir.Name.StartsWith($LargeFlagPrefix))
             {
-                Write-Log "Skipped file category or large folder '$($dir.Name)'" 'VERBOSE'
+                Write-Log "Skipped large-flagged folder '$($dir.Name)'" 'VERBOSE'
+                $fileStats.Skipped++
+                continue
+            }
+
+            if ($dir.Name.StartsWith($CategoryFolderPrefix))
+            {
+                Write-Log "Skipped file category folder '$($dir.Name)'" 'VERBOSE'
                 continue
             }
 
@@ -727,23 +842,36 @@ if (-not ($Skip -contains 'Folders') -and
                 $resolvedFlagName = [System.IO.Path]::GetFileName($resolvedFlagPath)
 
                 Rename-Item -LiteralPath $dir.FullName -NewName $resolvedFlagName -EA 'Stop'
+
                 Write-Log "Flagged large folder '$($dir.Name)' ($([math]::Round($dirSizeBytes / 1MB, 1))MB)" 'VERBOSE'
+
                 $fileStats.Flagged++
+                $fileStats.Skipped++
+
                 continue
             }
 
-            $targetDir = Join-Path $DownloadsPath $StaleFolderName
+            $staleFolderKey = "${CategoryFolderPrefix}${StaleFolderName}"
 
-            if (-not (Test-Path -LiteralPath $targetDir))
+            if (-not $categoryDirCache.ContainsKey($staleFolderKey))
             {
-                New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
-                Write-Log "Created missing subfolder: '$StaleFolderName'" 'VERBOSE'
+                $newDir = Join-Path $DownloadsPath $staleFolderKey
+
+                New-Item -ItemType Directory -Path $newDir -Force | Out-Null
+
+                Write-Log "Created stale unmatched item subfolder: '$staleFolderKey'" 'VERBOSE'
+
+                $categoryDirCache[$staleFolderKey] = $newDir
             }
 
-            $destPath = Resolve-DestinationPath -Directory $targetDir -FileName $dir.Name
+            $staleDir = $categoryDirCache[$staleFolderKey]
+
+            $destPath = Resolve-DestinationPath -Directory $staleDir -FileName $dir.Name
 
             Move-Item -LiteralPath $dir.FullName -Destination $destPath -EA 'Stop'
+
             Write-Log "Moved stale folder '$($dir.Name)' to: '$StaleFolderName'"
+
             $fileStats.Moved++
         }
         catch
@@ -763,10 +891,71 @@ elseif ($dirCount -eq 0)
 if ($CleanReminderThreshold -gt 0 -and
     ($fileStats.Skipped -ge $CleanReminderThreshold))
 {
-    $cleanupReminder = "!_OVER $CleanReminderThreshold LOOSE ITEMS - YOU SHOULD CLEAN UP_!.txt"
+    $cleanupReminder = "!!_OVER $CleanReminderThreshold LOOSE ITEMS - YOU SHOULD CLEAN UP_!!.txt"
 
     if (-not (Test-Path -LiteralPath "$DownloadsPath\$cleanupReminder"))
     { New-Item -Path $DownloadsPath -Name $cleanupReminder -ItemType 'File' -EA 'SilentlyContinue' }
+}
+
+$validPrefixes = @(
+    $ExtensionMap.Keys.ForEach({ "${CategoryFolderPrefix}$_" })
+    "${CategoryFolderPrefix}${StaleFolderName}"
+)
+
+$categoryFolders = (
+    Get-ChildItem -LiteralPath $DownloadsPath -Directory |
+    Where-Object {
+        $folder = $_
+        $validPrefixes.Where({ $folder.Name.StartsWith($_) })
+    }
+)
+
+if ($categoryFolders -and
+    (-not $NoSizeLabels))
+{
+    Write-Log "Calculating and applying size tags to category folders..."
+
+    $folderSizes = (
+        $categoryFolders |
+            ForEach-Object -Parallel {
+                $bytes = (
+                    Get-ChildItem -LiteralPath $_.FullName -Recurse -File |
+                    Measure-Object -Property Length -Sum
+                ).Sum ?? 0
+
+                [PSCustomObject]@{
+                    Path  = $_.FullName
+                    Name  = $_.Name
+                    Bytes = $bytes
+                }
+        } -ThrottleLimit 8
+    )
+
+    foreach ($entry in $folderSizes)
+    {
+        $baseName = $entry.Name -replace '\s+\[[\d.]+ [KMGT]?B\]$'
+
+        $sizeStr = switch ($entry.Bytes)
+        {
+            { $_ -ge 1GB } { '{0:N1} GB' -f ($entry.Bytes / 1GB); break }
+            { $_ -ge 1MB } { '{0:N1} MB' -f ($entry.Bytes / 1MB); break }
+            { $_ -ge 1KB } { '{0:N1} KB' -f ($entry.Bytes / 1KB); break }
+            default        { '{0} B'     -f  $entry.Bytes }
+        }
+
+        $newName = '{0} [{1}]' -f $baseName, $sizeStr
+
+        if ($newName -ne $entry.Name)
+        {
+            Rename-Item -LiteralPath $entry.Path -NewName $newName -EA 'Stop'
+
+            Write-Log "Applied size label to '$baseName': $sizeStr" 'VERBOSE'
+
+            $categoryDirCache[$baseName] = Join-Path $DownloadsPath $newName
+        }
+    }
+
+    Write-Log "Done."
 }
 
 Write-Log (@(
