@@ -180,7 +180,7 @@ Extremely high values are blocked by parameter validation, remove it if you need
 | `RestoreDownloadsRoot` | *(off)* | Undo everything this script has done |
 | `NoSizeLabels` | *(off)* | Skip stamping category folders with their current size |
 | `NoLogFile` | *(off)* | Disables logging to file |
-| `Quiet` | *(off)* | Suppresses console output (already invisible if you don't set InformationPreference) |
+| `Quiet` | *(off)* | Suppresses all console output from the script itself (except terminating errors) |
 
 ### Extension Map
 
