@@ -1,5 +1,5 @@
 <#PSScriptInfo
-.VERSION 1.0.0
+.VERSION 1.0.1
 .AUTHOR Ryan Eaton
 #>
 
@@ -163,7 +163,7 @@ param(
     [switch]$Quiet
 )
 
-[version]$script:Version = '1.0.0'
+[version]$script:Version = '1.0.1'
 
 #region In-Script Map Override
 
@@ -787,17 +787,6 @@ $rootDirs = Get-ChildItem -LiteralPath $DownloadsPath -Directory
 
 $dirCount = $rootDirs.Count - ($rootDirs.Where({ $_.Name.StartsWith($CategoryFolderPrefix) })).Count
 
-if ($rootFiles.Count -eq 0 -and
-    $dirCount -eq 0)
-{
-    Write-Log (@(
-        "No files or folders found to process in the root of '$DownloadsPath'."
-        "Sort-DownloadsFolder complete."
-    ) -join "`n")
-
-    return
-}
-
 if (-not ($Skip -contains 'Folders') -and
     ($dirCount -gt 0))
 {
@@ -958,6 +947,17 @@ if ($categoryFolders -and
     Write-Log "Done."
 }
 
+if ($rootFiles.Count -eq 0 -and
+    $dirCount -eq 0)
+{
+    Write-Log (@(
+        "There were no files or folders to process in the root of '$DownloadsPath'."
+        "Sort-DownloadsFolder complete.`n"
+    ) -join "`n")
+
+    return
+}
+
 Write-Log (@(
     "`nSummary:"
     "Moved  : $($fileStats.Moved)"
@@ -966,6 +966,6 @@ Write-Log (@(
     "Errors : $($fileStats.Errors)`n"
 ) -join "`n")
 
-Write-Log "Sort-DownloadsFolder complete."
+Write-Log "Sort-DownloadsFolder complete.`n"
 
 #endregion Main
