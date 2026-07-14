@@ -6,7 +6,7 @@ Sorts files into extension-based category folders, flags large files/folders, co
 and stamps each category folder with its current size on each run.
 The plan is to set a scheduled task and forget it.
 
-*"Your warranty is void", I take no responsibility for what you do with this, yada yada yada.*
+*"Your warranty is void", I assume no responsibility for what you do with this, yada yada yada.*
 
 ## Features
 
