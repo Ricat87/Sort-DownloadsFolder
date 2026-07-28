@@ -984,10 +984,12 @@ if ($categoryFolders -and
 if ($rootFiles.Count -eq 0 -and
     $dirCount -eq 0)
 {
-    Write-Log @(
-        "There were no files or folders to process in the root of '$DownloadsPath'."
+    Write-Log "There were no files or folders to process in the root of '$DownloadsPath'."
+
+    Write-Log (@(
         "Sort-DownloadsFolder complete. Exiting."
-    )
+        "$($line*4)"
+    )-join "`n")
 
     return
 }
