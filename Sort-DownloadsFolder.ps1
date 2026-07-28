@@ -396,6 +396,12 @@ else
 
 function Write-Log
 {
+    <#
+    .NOTES
+        If you pass a value with `n or an array joined with `n, then
+        only the first line of that block will have a timestamp.
+    #>
+
     [CmdletBinding()]
     param(
         [Parameter(Mandatory,ValueFromPipeline)]
@@ -554,10 +560,10 @@ function Restore-DownloadsRoot
             }
             else
             { 
-                Write-Log (@(
+                Write-Log @(
                     "Restore could not be fully completed."
                     "Category folder '$($dir.Name)' still has contents, left in place."
-                ) -join "`n") 'WARN'
+                ) 'WARN'
             }
         }
         catch
@@ -586,10 +592,13 @@ if (-not $NoLogFile)
         $clearedLog = $true
     }
 
+    $line = '-' * 30
+
     Write-Log (@(
         if ($newLogDir)  { "Log directory '$LogDirectory' was created." }
         if ($clearedLog) { "It's a new day; logfile was wiped." }
-        "Sort-DownloadsFolder started.`n"
+        "Sort-DownloadsFolder started."
+        "$($line*2)"
         "Script version   : $($script:Version)"
         "Downloads folder : $($DownloadsPath)"
         "Large file prefix: $($LargeFlagPrefix)"
@@ -601,7 +610,8 @@ if (-not $NoLogFile)
         "Large file size  : >$($LargeFlagSizeMB)MB"
         "Min. file age    : $($MinAgeMinutes) minutes"
         "Files stale after: $($StaleDaysThreshold) days"
-        "Cleanup reminder : $($CleanReminderThreshold) loose files`n"
+        "Cleanup reminder : $($CleanReminderThreshold) loose files"
+        "$($line*2)"
     ) -join "`n")
 }
 
@@ -613,15 +623,17 @@ if (-not (Test-Path -LiteralPath $DownloadsPath))
 
 if ($RestoreDownloadsRoot)
 {
-    Write-Log (@(
+    Write-Log @(
         "-RestoreDownloadsRoot specified, emptying all '$CategoryFolderPrefix' folders back into Downloads root."
         "Please note, large-flagged files/folders will not have their name prefix removed."
-    ) -join "`n")
+    ) 'WARN'
 
     Restore-DownloadsRoot
 
-    Write-Log "Done."
-    Write-Log "`nSort-DownloadsFolder complete."
+    Write-Log @(
+        "Done."
+        "Sort-DownloadsFolder complete."
+    )
 
     return
 }
@@ -972,27 +984,28 @@ if ($categoryFolders -and
 if ($rootFiles.Count -eq 0 -and
     $dirCount -eq 0)
 {
-    Write-Log (@(
+    Write-Log @(
         "There were no files or folders to process in the root of '$DownloadsPath'."
         "Sort-DownloadsFolder complete. Exiting."
-        ""
-    ))
+    )
 
     return
 }
 
 Write-Log (@(
     "Sort-DownloadsFolder complete."
-    "Summary:"
+    "Summary"
+    "$line"
     "Moved  : $($fileStats.Moved)"
     "Flagged: $($fileStats.Flagged)"
     "Skipped: $($fileStats.Skipped)"
-    "Errors : $($fileStats.Errors)`n"
+    "Errors : $($fileStats.Errors)"
+    "$line"
 ) -join "`n")
 
 Write-Log (@(
     "Exiting."
-    ""
-))
+    "$($line*4)"
+) -join "`n")
 
 #endregion Main

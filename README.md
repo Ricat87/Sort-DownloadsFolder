@@ -8,6 +8,10 @@ The plan is to set a scheduled task and forget it.
 
 *"Your warranty is void", I take no responsibility for what you do with this, yada yada yada.*
 
+*I use AI to figure out how to do things, and to help write out code blocks that are faster to explain than to type.*
+*My perfectionism means that by the time you see this, I will have rewritten everything by hand at least twice.*
+*If you are reading this, I forced myself to publish it because I assure you, I am still not 100% happy with it.*
+
 ## Features
 
 - Sorts files into named category folders (`!!Installers`, `!!Scripts`, `!!Documents`, etc.)
