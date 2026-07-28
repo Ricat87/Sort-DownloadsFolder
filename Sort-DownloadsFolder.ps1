@@ -396,40 +396,62 @@ else
 
 function Write-Log
 {
+    [CmdletBinding()]
     param(
-        [Parameter(Mandatory)]
-        [string] $Message,
+        [Parameter(Mandatory,ValueFromPipeline)]
+        [AllowEmptyString()]
+        [string[]]$Message,
 
         [ValidateSet('INFO','VERBOSE','WARN','ERROR')]
-        [string] $Level = 'INFO'
+        [string]$Level = 'INFO',
+
+        [string]$ToFile = $script:logFile
     )
 
-    if (-not $script:Quiet)
+    begin
+    { $local:ErrorActionPreference = 'Continue' }
+    process
     {
-        switch ($Level)
+        foreach ($msg in $Message)
         {
-            'INFO'    { Write-Information $Message }
-            'VERBOSE' { Write-Verbose     $Message }
-            'WARN'    { Write-Warning     $Message }
-            'ERROR'   { Write-Error       $Message }
+            $addParams = @{
+                LiteralPath = $ToFile
+                Encoding    = 'UTF8'
+            }
+
+            if ([string]::IsNullOrWhiteSpace($msg))
+            {
+                Add-Content @addParams -Value ' '
+                continue
+            }
+
+            if (-not $script:Quiet)
+            {
+                switch ($Level)
+                {
+                    'INFO'    { Write-Information $msg }
+                    'VERBOSE' { Write-Verbose     $msg }
+                    'WARN'    { Write-Warning     $msg }
+                    'ERROR'   { Write-Error       $msg }
+                }
+            }
+
+            if ($script:NoLogFile -or
+                ($Level -eq 'VERBOSE' -and
+                $script:VerbosePreference -ne 'Continue'))
+            { continue }
+
+            $logStrings = @(
+                (Get-Date -Format 'yyyy-MM-dd HH:mm:ss.fff')  # 0
+                $Level                                        # 1
+                $msg                                          # 2
+            )
+
+            $entry = '[{0}] [{1,-7}] {2}' -f $logStrings
+
+            Add-Content @addParams -Value $entry
         }
     }
-
-    if ($script:NoLogFile)
-    { return }
-
-    if ($Level -eq 'VERBOSE' -and
-        ($script:VerbosePreference -ne 'Continue'))
-    { return }
-
-    $entry = '[{0}] [{1}] {2}' -f (Get-Date -F 's'),$Level,$Message
-
-    $addParams = @{
-        LiteralPath = $logFile
-        Value       = $entry
-        Encoding    = 'UTF8'
-    }
-    Add-Content @addParams
 }
 
 function Resolve-DestinationPath
@@ -952,20 +974,25 @@ if ($rootFiles.Count -eq 0 -and
 {
     Write-Log (@(
         "There were no files or folders to process in the root of '$DownloadsPath'."
-        "Sort-DownloadsFolder complete.`n"
-    ) -join "`n")
+        "Sort-DownloadsFolder complete. Exiting."
+        ""
+    ))
 
     return
 }
 
 Write-Log (@(
-    "`nSummary:"
+    "Sort-DownloadsFolder complete."
+    "Summary:"
     "Moved  : $($fileStats.Moved)"
     "Flagged: $($fileStats.Flagged)"
     "Skipped: $($fileStats.Skipped)"
     "Errors : $($fileStats.Errors)`n"
 ) -join "`n")
 
-Write-Log "Sort-DownloadsFolder complete.`n"
+Write-Log (@(
+    "Exiting."
+    ""
+))
 
 #endregion Main
